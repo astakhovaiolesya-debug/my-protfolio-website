@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-paper text-ink antialiased;
+  }
+
+  body {
+    @apply min-h-dvh font-body text-[14px] leading-[1.45];
+  }
+
+  ::selection {
+    @apply bg-accent text-paper;
+  }
+}
+
+@layer utilities {
+  .editorial-h1 {
+    @apply font-serif font-semibold tracking-tight text-[44px] leading-[1.06] sm:text-[56px] sm:leading-[1.06] lg:text-[72px] lg:leading-[78px];
+  }
+
+  .editorial-kicker {
+    @apply font-sans text-[14px] uppercase tracking-tightish;
+  }
+
+  .editorial-subhead {
+    @apply font-sans text-[16px] uppercase tracking-tightish sm:text-[18px] lg:text-[20px];
+  }
+
+  .editorial-caption {
+    @apply font-serif italic font-extralight text-[13px] leading-normal text-warm;
+  }
+}

@@ -1,0 +1,80 @@
+import { Container } from '../../components/Container'
+import { NextProjectLink } from '../../components/NextProjectLink'
+
+export function ProjectPageIstd() {
+  return (
+    <>
+      <section>
+        <Container className="pb-10 pt-10 sm:pt-16">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,788px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
+            <div className="space-y-8">
+              <div className="space-y-2">
+                <h1 className="editorial-h1">ISTD Typography submission</h1>
+                <p className="editorial-caption">Typography / Editorial Design / Print / Binding</p>
+              </div>
+
+              <div className="space-y-2">
+                <p className="editorial-subhead">THE BRIEF:</p>
+                <p className="max-w-[60ch] text-ink/75">
+                  Choose a traditional craft or trade that has declined or disappeared and make a case for why it
+                  still matters today. Research its history, techniques and social role, then identify a unique
+                  insight and develop a creative design outcome in an appropriate format.
+                </p>
+              </div>
+            </div>
+
+            <div className="overflow-hidden bg-warm/10">
+              <img src="/images/istd-hero.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="pb-10">
+          <div className="h-[360px] w-full bg-warm/20 sm:h-[520px] lg:h-[775px]" />
+        </Container>
+      </section>
+
+      <section>
+        <Container className="py-6">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,570px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
+            <div className="space-y-2">
+              <p className="editorial-subhead">MY APPROACH:</p>
+              <p className="max-w-[60ch] whitespace-pre-wrap text-ink/75">
+                This project responds to the ISTD Trade Matters brief by focusing on pysanka, a traditional Ukrainian
+                craft of decorating eggs with symbolic patterns, historically rooted in ritual, heritage and community
+                life. Once a shared family practice connecting generations and belief systems, pysanka is increasingly
+                recognised but rarely practiced, particularly among younger and urban audiences.
+              </p>
+            </div>
+
+            <div className="overflow-hidden bg-warm/10">
+              <img src="/images/istd-approach.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="pb-10 pt-2">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,742px)_minmax(0,1fr)]">
+            <div className="overflow-hidden bg-warm/10">
+              <img src="/images/istd-spread-1.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
+            </div>
+            <div className="overflow-hidden bg-warm/10">
+              <img src="/images/istd-spread-2.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="flex justify-end py-8">
+          <NextProjectLink to="/works/shane-macgowan-merchandise" />
+        </Container>
+      </section>
+    </>
+  )
+}
+
