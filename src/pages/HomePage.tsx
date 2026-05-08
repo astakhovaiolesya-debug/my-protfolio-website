@@ -6,10 +6,10 @@ import { projects } from '../data/projects'
 export function HomePage() {
   return (
     <>
-      <section className="flex h-[90vh] flex-col overflow-hidden">
-        <Container className="flex flex-1 flex-col justify-end pb-14 pt-10 sm:pt-16">
-          <div className="flex flex-col gap-6 pb-4 lg:flex-row lg:items-end lg:justify-between">
-            <h1 className="editorial-h1 max-w-[18ch]">Olesia Astakhova</h1>
+      <section className="flex min-h-[100svh] flex-col overflow-hidden overflow-x-clip lg:min-h-[min(92vh,_840px)]">
+        <Container className="flex w-full flex-1 flex-col justify-end pb-14 pt-10 sm:pt-16">
+          <div className="flex min-w-0 flex-col gap-6 pb-4 lg:flex-row lg:items-end lg:justify-between">
+            <h1 className="editorial-h1 max-w-[18ch] min-w-0">Olesia Astakhova</h1>
             <p className="editorial-subhead max-w-[38ch] text-ink/90 lg:text-right">
               A Dublin-based graphic communication designer specialising in branding and typography, from concept
               through to print and digital production.
@@ -65,16 +65,15 @@ export function HomePage() {
               <p className="editorial-subhead text-ink/70">2025-2026</p>
             </div>
 
-            <div className="grid gap-10 lg:grid-cols-3 lg:items-end lg:gap-8">
+            <div className="grid grid-cols-1 gap-12 sm:gap-10 lg:grid-cols-3 lg:items-end lg:gap-8">
               {projects.slice(0, 3).map((p) => (
                 <ProjectCard
                   key={p.id}
                   project={p}
                   imageClassName={[
-                    'w-full',
-                    p.id === 'colab' ? 'h-[520px] lg:h-[594px]' : '',
-                    p.id === 'dad' ? 'h-[420px] lg:h-[488px]' : '',
-                    p.id === 'istd' ? 'h-[400px] lg:h-[477px]' : '',
+                    p.id === 'colab' ? 'lg:h-[594px]' : '',
+                    p.id === 'dad' ? 'lg:h-[488px]' : '',
+                    p.id === 'istd' ? 'lg:h-[477px]' : '',
                   ]
                     .filter(Boolean)
                     .join(' ')}

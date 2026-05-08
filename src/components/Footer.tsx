@@ -71,14 +71,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex items-end justify-between">
+        <div className="mt-12 flex min-w-0 flex-wrap items-end justify-between gap-6">
           <a
             href="mailto:astakhovaiolesya@gmail.com"
-            className="font-serif text-[44px] font-semibold leading-[1.06] text-paper transition-opacity duration-200 hover:opacity-85 sm:text-[56px] lg:text-[72px] lg:leading-[78px]"
+            className="min-w-0 shrink font-serif text-[clamp(34px,_10vw,_44px)] font-semibold leading-[1.06] text-paper transition-opacity duration-200 hover:opacity-85 sm:text-[56px] lg:text-[72px] lg:leading-[78px]"
           >
             Contact
           </a>
-          <img src="/images/logo-footer.svg" alt="" className="size-[88px] sm:size-[105px]" />
+          <img src="/images/logo-footer.svg" alt="" className="size-[88px] shrink-0 sm:size-[105px]" />
         </div>
       </div>
     </footer>

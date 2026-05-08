@@ -66,14 +66,33 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
 
           <button
             type="button"
-            className="group relative flex h-[22px] w-[40px] flex-col items-center justify-center gap-2 rounded-sm border-0 bg-transparent sm:hidden outline-none [-webkit-tap-highlight-color:transparent] focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            className="relative flex h-11 min-h-[44px] w-11 min-w-[44px] items-center justify-center rounded-sm border-0 bg-transparent sm:hidden [-webkit-tap-highlight-color:transparent] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
+            aria-controls={open ? 'site-mobile-menu' : undefined}
             onClick={() => setOpen((v) => !v)}
           >
-            <span className="h-1 w-[40px] bg-warm transition-transform duration-200 group-aria-expanded:translate-y-[12px] group-aria-expanded:rotate-45" />
-            <span className="h-1 w-[40px] bg-warm transition-opacity duration-200 group-aria-expanded:opacity-0" />
-            <span className="h-1 w-[40px] bg-warm transition-transform duration-200 group-aria-expanded:-translate-y-[12px] group-aria-expanded:-rotate-45" />
+            <span
+              aria-hidden
+              className={[
+                'absolute left-1/2 top-1/2 block h-px w-8 bg-warm transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none',
+                open ? '-translate-x-1/2 -translate-y-1/2 rotate-45' : '-translate-x-1/2 -translate-y-[7px]',
+              ].join(' ')}
+            />
+            <span
+              aria-hidden
+              className={[
+                'absolute left-1/2 top-1/2 block h-px w-8 bg-warm transition-opacity duration-200 ease-linear motion-reduce:transition-none',
+                open ? '-translate-x-1/2 opacity-0' : '-translate-x-1/2 -translate-y-1/2 opacity-100',
+              ].join(' ')}
+            />
+            <span
+              aria-hidden
+              className={[
+                'absolute left-1/2 top-1/2 block h-px w-8 bg-warm transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none',
+                open ? '-translate-x-1/2 -translate-y-1/2 -rotate-45' : '-translate-x-1/2 translate-y-[7px]',
+              ].join(' ')}
+            />
           </button>
         </div>
       </div>

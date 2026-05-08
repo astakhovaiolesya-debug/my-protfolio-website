@@ -4,11 +4,11 @@
 
 @layer base {
   html {
-    @apply bg-paper text-ink antialiased;
+    @apply bg-paper text-ink antialiased overflow-x-clip scroll-smooth;
   }
 
   body {
-    @apply min-h-dvh font-body text-[14px] leading-[1.45];
+    @apply min-h-dvh min-w-[320px] font-body text-[14px] leading-[1.45] overflow-x-clip text-pretty;
   }
 
   ::selection {
@@ -18,7 +18,8 @@
 
 @layer utilities {
   .editorial-h1 {
-    @apply font-serif font-semibold tracking-tight text-[44px] leading-[1.06] sm:text-[56px] sm:leading-[1.06] lg:text-[72px] lg:leading-[78px];
+    @apply font-serif font-semibold tracking-tight text-[42px] max-[380px]:text-[34px] leading-[1.06] sm:text-[56px]
+      sm:leading-[1.06] lg:text-[72px] lg:leading-[78px];
   }
 
   .editorial-kicker {
@@ -26,7 +27,7 @@
   }
 
   .editorial-subhead {
-    @apply font-sans text-[16px] uppercase tracking-tightish sm:text-[18px] lg:text-[20px];
+    @apply font-sans text-[15px] uppercase tracking-tightish sm:text-[18px] lg:text-[20px];
   }
 
   .editorial-caption {

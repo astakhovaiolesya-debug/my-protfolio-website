@@ -12,18 +12,29 @@ export function ProjectCard({ project, className, imageClassName }: ProjectCardP
     <Link
       to={project.href}
       className={[
-        'group block',
-        'transition-[transform,opacity] duration-300 hover:-translate-y-0.5 active:translate-y-0',
+        'group block min-w-0',
+        'transition-[transform] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0',
         className,
       ]
         .filter(Boolean)
         .join(' ')}
     >
-      <div className={['relative overflow-hidden bg-warm/10', imageClassName].filter(Boolean).join(' ')}>
+      <div
+        className={[
+          'relative isolate w-full min-w-0 overflow-hidden rounded-[1px] bg-warm/10',
+          // Uniform mobile/tablet thumbnails; heights from `imageClassName` apply at `lg`.
+          'aspect-[4/5] sm:aspect-[5/6] lg:aspect-auto lg:min-h-0',
+          imageClassName,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         <img
           src={project.coverImage}
           alt=""
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          decoding="async"
+          sizes="(min-width: 1024px) 33vw, 100vw"
+          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           loading="lazy"
         />
       </div>

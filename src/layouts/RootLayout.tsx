@@ -7,9 +7,9 @@ export function RootLayout() {
   const isHome = location.pathname === '/'
 
   return (
-    <div className="min-h-dvh bg-paper text-ink">
+    <div className="min-h-dvh min-w-0 overflow-x-clip bg-paper text-ink">
       <Navbar variant={isHome ? 'light' : 'light'} />
-      <main>
+      <main className="min-w-0">
         <Outlet />
       </main>
       <Footer />

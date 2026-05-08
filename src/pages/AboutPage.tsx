@@ -39,9 +39,9 @@ export function AboutPage() {
   return (
     <>
       <section>
-        <Container className="pb-14 pt-10 sm:pt-16">
-          <div  className=" flex h-[90vh] grid gap-12 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
-            <div className="space-y-8">
+        <Container className="pb-14 pt-10 sm:pb-16 sm:pt-16">
+          <div className="grid min-h-0 gap-12 lg:grid-cols-[minmax(0,_640px)_minmax(0,_1fr)] lg:items-end lg:gap-[30px]">
+            <div className="min-w-0 space-y-8">
               <h1 className="editorial-h1">About</h1>
               <div className="space-y-4">
                 <p className="editorial-subhead max-w-[34ch] text-ink/90">
@@ -56,9 +56,16 @@ export function AboutPage() {
               </div>
             </div>
 
-            <div className="flex justify-start lg:justify-end">
+            <div className="flex min-w-0 justify-start lg:justify-end lg:self-end">
               <div className="aspect-[448/676] w-full max-w-[420px] overflow-hidden bg-warm/10 lg:max-w-[448px]">
-                <img src="/images/headshot.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
+                <img
+                  src="/images/headshot.jpg"
+                  alt=""
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 1024px) 448px, 100vw"
+                />
               </div>
             </div>
           </div>
