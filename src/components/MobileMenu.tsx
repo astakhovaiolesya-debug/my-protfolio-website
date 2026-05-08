@@ -49,7 +49,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         root.querySelectorAll<HTMLElement>(
           'a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"])',
         ),
-      ).filter((el) => el.offsetParent !== null || el.getClientRects().length > 0)
+      )
 
       if (focusables.length === 0) return
 
@@ -89,10 +89,9 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       aria-labelledby={titleId}
       className={[
         // Below sticky header (z-100) so the bar + burger stay interactive; above in-flow page content.
-        'fixed inset-x-0 bottom-0 z-[99] sm:hidden',
+        'fixed inset-x-0 bottom-0 z-[99] overflow-y-auto sm:hidden',
         'overscroll-none bg-paper/[0.98] backdrop-blur-sm',
-        'transition-opacity duration-200 ease-out motion-reduce:transition-none',
-        'transition-[visibility] duration-200 ease-out motion-reduce:transition-none',
+        'transition-[opacity,visibility] duration-200 ease-out motion-reduce:transition-none',
         open ? 'pointer-events-auto visible opacity-100' : 'pointer-events-none invisible opacity-0',
       ].join(' ')}
       style={{ top: MOBILE_NAV_TOP }}

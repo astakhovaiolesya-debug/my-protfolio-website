@@ -23,12 +23,6 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
 
   return (
     <>
-      {/*
-        Mobile menu MUST NOT live inside <header>: backdrop-blur on the header creates a
-        containing block for position:fixed descendants, which clips the sheet to the header height.
-      */}
-      <MobileMenu open={open} onClose={() => setOpen(false)} />
-
       <header className="sticky top-0 z-[100] bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
         <div className="relative z-[110] mx-auto w-full max-w-[1440px] px-5 py-4 sm:px-8">
           <div className="flex items-center justify-between">
@@ -104,6 +98,12 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
           </div>
         </div>
       </header>
+
+      {/*
+        Mobile menu is a sibling of <header>, not a child: backdrop-filter on the header creates a
+        containing block for position:fixed descendants, which would clip an in-header sheet to ~88px.
+      */}
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
     </>
   )
 }
