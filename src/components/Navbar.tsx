@@ -22,7 +22,7 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
   const logoSrc = variant === 'light' ? '/images/logo.svg' : '/images/logo.svg'
 
   return (
-    <header className="z-[100] bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
+    <header className="sticky top-0 z-[100] bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
       <div className="relative z-[110] mx-auto w-full max-w-[1440px] px-5 py-4 sm:px-8">
         <div className="flex items-center justify-between">
           <Link
