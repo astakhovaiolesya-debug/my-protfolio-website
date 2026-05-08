@@ -17,22 +17,55 @@ const MOBILE_NAV_TOP = 88
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const titleId = useId()
   const firstLinkRef = useRef<HTMLAnchorElement | null>(null)
+  const panelRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     if (!open) return
 
     const previousHtmlOverflow = document.documentElement.style.overflow
     const previousBodyOverflow = document.body.style.overflow
+    const previousHtmlTouch = document.documentElement.style.touchAction
+    const previousBodyTouch = document.body.style.touchAction
 
     document.documentElement.style.overflow = 'hidden'
     document.body.style.overflow = 'hidden'
+    document.documentElement.style.touchAction = 'none'
+    document.body.style.touchAction = 'none'
 
     const timer = window.setTimeout(() => {
       firstLinkRef.current?.focus()
     })
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === 'Escape') onClose()
+      if (event.key === 'Escape') {
+        onClose()
+        return
+      }
+
+      if (event.key !== 'Tab' || !panelRef.current) return
+
+      const root = panelRef.current
+      const focusables = Array.from(
+        root.querySelectorAll<HTMLElement>(
+          'a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"])',
+        ),
+      ).filter((el) => el.offsetParent !== null || el.getClientRects().length > 0)
+
+      if (focusables.length === 0) return
+
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      const active = document.activeElement as HTMLElement | null
+
+      if (event.shiftKey) {
+        if (active === first || !root.contains(active)) {
+          event.preventDefault()
+          last.focus()
+        }
+      } else if (active === last) {
+        event.preventDefault()
+        first.focus()
+      }
     }
 
     window.addEventListener('keydown', onKeyDown)
@@ -41,6 +74,8 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       window.clearTimeout(timer)
       document.documentElement.style.overflow = previousHtmlOverflow
       document.body.style.overflow = previousBodyOverflow
+      document.documentElement.style.touchAction = previousHtmlTouch
+      document.body.style.touchAction = previousBodyTouch
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [open, onClose])
@@ -48,34 +83,54 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
   return (
     <div
       id="site-mobile-menu"
+      ref={panelRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
       className={[
-        'fixed inset-x-0 bottom-0 z-[95] overflow-y-auto overscroll-none bg-paper/[0.98] backdrop-blur-sm sm:hidden',
-        'motion-reduce:transition-none',
-        'transition-[opacity,_visibility] duration-200 ease-out',
-        open ? 'pointer-events-auto visible opacity-100' : 'pointer-events-none invisible opacity-0 delay-150',
+        // Below sticky header (z-100) so the bar + burger stay interactive; above in-flow page content.
+        'fixed inset-x-0 bottom-0 z-[99] sm:hidden',
+        'overscroll-none bg-paper/[0.98] backdrop-blur-sm',
+        'transition-opacity duration-200 ease-out motion-reduce:transition-none',
+        'transition-[visibility] duration-200 ease-out motion-reduce:transition-none',
+        open ? 'pointer-events-auto visible opacity-100' : 'pointer-events-none invisible opacity-0',
       ].join(' ')}
       style={{ top: MOBILE_NAV_TOP }}
       aria-hidden={!open}
-      onMouseDown={() => open && onClose()}
       tabIndex={-1}
     >
+      {/* Dimmed tap-outside layer (does not cover header: starts below it) */}
+      <button
+        type="button"
+        tabIndex={-1}
+        aria-hidden
+        className={[
+          'fixed inset-x-0 bottom-0 z-0 bg-ink/[0.04] motion-reduce:transition-none',
+          'transition-opacity duration-200 ease-out',
+          open ? 'opacity-100' : 'opacity-0',
+        ].join(' ')}
+        style={{ top: MOBILE_NAV_TOP }}
+        onPointerDown={(e) => {
+          if (!open) return
+          e.preventDefault()
+          onClose()
+        }}
+      />
+
       <div
         className={[
-          'mx-auto w-full max-w-[1440px] px-5 pb-24 pt-10 sm:px-8',
+          'relative z-[1] mx-auto w-full max-w-[1440px] px-5 pb-28 pt-10 sm:px-8',
           'motion-reduce:transition-none',
-          'transition-[transform] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
-          open ? 'delay-75 translate-y-0' : 'translate-y-1.5',
+          'transition-[transform,opacity] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
+          open ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-95',
         ].join(' ')}
-        onMouseDown={(e) => e.stopPropagation()}
+        onPointerDown={(e) => e.stopPropagation()}
       >
         <p id={titleId} className="sr-only">
           Site navigation
         </p>
 
-        <nav className="flex flex-col gap-10" aria-label="Mobile navigation" onMouseDown={(e) => e.stopPropagation()}>
+        <nav className="flex flex-col gap-10" aria-label="Mobile navigation" onPointerDown={(e) => e.stopPropagation()}>
           {items.map((item, index) => (
             <NavLink
               key={item.to}
@@ -84,7 +139,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               onClick={onClose}
               className={({ isActive }: { isActive: boolean }) =>
                 [
-                  'editorial-kicker inline-flex rounded-[3px] text-ink transition-colors duration-200 hover:text-accent/95 focus-visible:text-ink',
+                  'editorial-kicker inline-flex touch-manipulation rounded-[3px] text-ink transition-colors duration-200 hover:text-accent/95 focus-visible:text-ink',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
                   isActive ? 'text-accent' : '',
                 ].join(' ')
@@ -99,7 +154,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             target="_blank"
             rel="noreferrer"
             onClick={onClose}
-            className="editorial-kicker inline-flex w-fit rounded-[3px] text-ink transition-colors duration-200 hover:text-accent/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            className="editorial-kicker inline-flex w-fit touch-manipulation rounded-[3px] text-ink transition-colors duration-200 hover:text-accent/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
           >
             Resume
           </a>
@@ -107,7 +162,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           <a
             href="#contact"
             onClick={onClose}
-            className="editorial-kicker inline-flex w-fit rounded-[3px] text-ink transition-colors duration-200 hover:text-accent/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+            className="editorial-kicker inline-flex w-fit touch-manipulation rounded-[3px] text-ink transition-colors duration-200 hover:text-accent/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
           >
             Contact
           </a>

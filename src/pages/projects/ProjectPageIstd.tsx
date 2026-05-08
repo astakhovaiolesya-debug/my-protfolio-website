@@ -30,11 +30,15 @@ export function ProjectPageIstd() {
         </Container>
       </section>
 
-      <section>
-        <Container className="pb-10">
-          <div className="overflow-hidden bg-warm/10">
+      <section aria-label="Project video" className="pb-10">
+        {/*
+          Full-bleed cinematic video: escape max-width container so width follows the viewport,
+          with a stable 16:9 frame and object-cover for an immersive edge-to-edge feel.
+        */}
+        <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-clip bg-warm/10">
+          <div className="relative mx-auto aspect-video w-full max-h-[min(88svh,_980px)] min-h-[200px] sm:min-h-[min(42vw,_520px)]">
             <video
-              className="block h-[360px] w-full object-cover sm:h-[520px] lg:h-[775px]"
+              className="absolute inset-0 h-full w-full object-cover"
               controls
               playsInline
               preload="metadata"
@@ -49,7 +53,7 @@ export function ProjectPageIstd() {
               .
             </video>
           </div>
-        </Container>
+        </div>
       </section>
 
       <section>
