@@ -5,8 +5,8 @@ export function Footer() {
     <footer id="contact" className="bg-accent text-paper">
       <div className="mx-auto w-full max-w-[1440px] px-5 pb-4 pt-10 sm:px-8">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-          <div className="flex flex-col gap-8 sm:flex-row sm:gap-24">
-            <div className="space-y-3">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-24">
+            <div className="space-y-3 lg:space-y-6">
               <p className="editorial-subhead text-muted">Email</p>
               <a
                 href="mailto:astakhovaiolesya@gmail.com"
@@ -16,7 +16,7 @@ export function Footer() {
               </a>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 lg:space-y-0">
               <p className="editorial-subhead text-muted">Phone number</p>
               <p className="editorial-kicker text-paper/90">+353 83 155 8137</p>
             </div>
@@ -34,7 +34,7 @@ export function Footer() {
                 href="https://drive.google.com/file/d/1qDHxu3d8LmdO2OtaCQ-BU-WnIfjSZX4d/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
-                className="block editorial-kicker text-paper/90 underline decoration-paper/60 decoration-1 underline-offset-2 hover:text-paper"
+                className="block editorial-kicker text-paper/90  hover:text-paper"
               >
                 Resume
               </a>

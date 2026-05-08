@@ -32,7 +32,23 @@ export function ProjectPageIstd() {
 
       <section>
         <Container className="pb-10">
-          <div className="h-[360px] w-full bg-warm/20 sm:h-[520px] lg:h-[775px]" />
+          <div className="overflow-hidden bg-warm/10">
+            <video
+              className="block h-[360px] w-full object-cover sm:h-[520px] lg:h-[775px]"
+              controls
+              playsInline
+              preload="metadata"
+              poster="/videos/OlesiaAstakhova_02_Thumbnail.jpg"
+            >
+              <source src="/videos/OlesiaAstakhova_02_Video.mp4" type="video/mp4" />
+              <source src="/videos/OlesiaAstakhova_02_Video.mov" type="video/quicktime" />
+              Download the{' '}
+              <a href="/videos/OlesiaAstakhova_02_Video.mp4" className="underline underline-offset-2">
+                video (MP4)
+              </a>
+              .
+            </video>
+          </div>
         </Container>
       </section>
 

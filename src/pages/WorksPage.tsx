@@ -18,9 +18,9 @@ export function WorksPage() {
             <ProjectCard project={projects[2]} imageClassName="h-[420px] lg:h-[477px]" className="lg:pt-[117px]" />
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-8">
-            <ProjectCard project={projects[3]} imageClassName="h-[420px] lg:h-[477px]" className="lg:pt-[191px]" />
-            <ProjectCard project={projects[4]} imageClassName="h-[520px] lg:h-[664px]" />
+          <div className="justify-end grid gap-10 lg:grid-cols-3 lg:items-end lg:gap-8">
+            <ProjectCard project={projects[3]} imageClassName="h-[420px] lg:h-[477px]" />
+            <ProjectCard project={projects[4]} imageClassName="h-[340px] lg:h-[400px]" />
           </div>
         </div>
       </Container>

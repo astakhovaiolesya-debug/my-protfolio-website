@@ -6,28 +6,15 @@ import { projects } from '../data/projects'
 export function HomePage() {
   return (
     <>
-      <section className="overflow-hidden">
-        <Container className="pb-14 pt-10 sm:pt-16">
-          <div className="flex flex-col gap-14 lg:gap-[120px]">
-            <div className="flex flex-col items-end gap-2">
-              <div className="h-[220px] w-full max-w-[670px] bg-warm/70 sm:h-[300px] lg:h-[366px]" />
-              <p className="editorial-kicker text-warm">scroll me</p>
-            </div>
-
-            <div className="flex flex-col gap-6 pb-4 lg:flex-row lg:items-end lg:justify-between">
-              <h1 className="editorial-h1 max-w-[18ch]">Olesia Astakhova</h1>
-              <p className="editorial-subhead max-w-[38ch] text-ink/90 lg:text-right">
-                A Dublin-based graphic communication designer specialising in branding and typography, from concept
-                through to print and digital production.
-              </p>
-            </div>
+      <section className="flex h-[90vh] flex-col overflow-hidden">
+        <Container className="flex flex-1 flex-col justify-end pb-14 pt-10 sm:pt-16">
+          <div className="flex flex-col gap-6 pb-4 lg:flex-row lg:items-end lg:justify-between">
+            <h1 className="editorial-h1 max-w-[18ch]">Olesia Astakhova</h1>
+            <p className="editorial-subhead max-w-[38ch] text-ink/90 lg:text-right">
+              A Dublin-based graphic communication designer specialising in branding and typography, from concept
+              through to print and digital production.
+            </p>
           </div>
-        </Container>
-      </section>
-
-      <section>
-        <Container className="py-14 sm:py-[60px]">
-          <div className="h-[420px] w-full bg-warm/70 sm:h-[520px] lg:h-[752px]" />
         </Container>
       </section>
 
@@ -87,7 +74,7 @@ export function HomePage() {
                     'w-full',
                     p.id === 'colab' ? 'h-[520px] lg:h-[594px]' : '',
                     p.id === 'dad' ? 'h-[420px] lg:h-[488px]' : '',
-                    p.id === 'istd' ? 'h-[420px] lg:h-[477px]' : '',
+                    p.id === 'istd' ? 'h-[400px] lg:h-[477px]' : '',
                   ]
                     .filter(Boolean)
                     .join(' ')}

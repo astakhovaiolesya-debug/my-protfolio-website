@@ -45,7 +45,22 @@ export function ProjectPageDad() {
               </p>
             </div>
 
-            <div className="h-[420px] bg-[#2f66ff]/85 sm:h-[520px] lg:h-[575px]" />
+            <div className="min-w-0 w-[min(100%,323px)] justify-self-end overflow-hidden bg-warm/10 aspect-[323/575]">
+              <video
+                className="block h-full w-full object-cover"
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source src="/videos/animation_sound_effects.mp4" type="video/mp4" />
+                <source src="/videos/animation_sound_effects.mov" type="video/quicktime" />
+                Download the{' '}
+                <a href="/videos/animation_sound_effects.mp4" className="underline underline-offset-2">
+                  video (MP4)
+                </a>
+                .
+              </video>
+            </div>
           </div>
         </Container>
       </section>

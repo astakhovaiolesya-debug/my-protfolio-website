@@ -48,8 +48,9 @@ export function ProjectPageQuietGrowth() {
 
       <section>
         <Container className="py-6">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,570px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
-            <div className="space-y-2">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,600px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
+     
+            <div className="min-w-0 justify-end space-y-2 lg:py-2">
               <p className="editorial-subhead">MY APPROACH:</p>
               <p className="max-w-[44ch] whitespace-pre-wrap text-ink/75">
                 Quiet Growth is a seeded journal designed for people who want to write, reflect, and let go. Each page
@@ -62,8 +63,13 @@ export function ProjectPageQuietGrowth() {
               </p>
             </div>
 
-            <div className="overflow-hidden bg-warm/10 lg:rotate-[-90deg] lg:origin-center">
-              <img src="/images/quiet-stationery.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
+            <div className="flex min-h-[280px] min-w-0 items-center justify-center overflow-hidden bg-warm/10 lg:min-h-[min(70vh,640px)]">
+              <img
+                src="/images/quiet-stationery.jpg"
+                alt=""
+                className="h-auto w-full max-h-[min(70vh,640px)] object-contain object-center"
+                loading="lazy"
+              />
             </div>
           </div>
         </Container>

@@ -40,7 +40,7 @@ export function AboutPage() {
     <>
       <section>
         <Container className="pb-14 pt-10 sm:pt-16">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
+          <div  className=" flex h-[90vh] grid gap-12 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
             <div className="space-y-8">
               <h1 className="editorial-h1">About</h1>
               <div className="space-y-4">

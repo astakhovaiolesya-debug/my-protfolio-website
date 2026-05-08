@@ -22,8 +22,8 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
   const logoSrc = variant === 'light' ? '/images/logo.svg' : '/images/logo.svg'
 
   return (
-    <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
-      <div className="mx-auto w-full max-w-[1440px] px-5 py-4 sm:px-8">
+    <header className="z-[100] bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
+      <div className="relative z-[110] mx-auto w-full max-w-[1440px] px-5 py-4 sm:px-8">
         <div className="flex items-center justify-between">
           <Link
             to="/"
@@ -52,7 +52,7 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
               href="https://drive.google.com/file/d/1qDHxu3d8LmdO2OtaCQ-BU-WnIfjSZX4d/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
-              className="editorial-kicker text-ink/90 underline decoration-ink/60 decoration-1 underline-offset-2 transition-colors duration-200 hover:text-ink"
+              className="editorial-kicker text-ink/90 transition-colors duration-200 hover:text-ink"
             >
               Resume
             </a>
@@ -66,7 +66,7 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
 
           <button
             type="button"
-            className="group relative flex h-[22px] w-[40px] flex-col items-center justify-center gap-2 sm:hidden"
+            className="group relative flex h-[22px] w-[40px] flex-col items-center justify-center gap-2 rounded-sm border-0 bg-transparent sm:hidden outline-none [-webkit-tap-highlight-color:transparent] focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}

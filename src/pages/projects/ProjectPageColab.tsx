@@ -4,7 +4,7 @@ import { NextProjectLink } from '../../components/NextProjectLink'
 export function ProjectPageColab() {
   return (
     <>
-      <section>
+      <section >
         <Container className="pb-10 pt-10 sm:pt-16">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
             <div className="space-y-8">
