@@ -18,8 +18,11 @@ export function WorksPage() {
             <ProjectCard project={projects[2]} imageClassName="lg:h-[477px]" className="lg:pt-[117px]" />
           </div>
 
+          {/*
+            Two cards in the same 3-column track as row 1: they occupy columns 1–2 (left-aligned).
+            The empty third column mirrors common editorial negative space on ultra-wide layouts.
+          */}
           <div className="grid grid-cols-1 gap-12 sm:gap-10 lg:grid-cols-3 lg:items-end lg:gap-8">
-            <div className="hidden lg:block" aria-hidden />
             <ProjectCard project={projects[3]} imageClassName="lg:h-[477px]" />
             <ProjectCard project={projects[4]} imageClassName="lg:h-[400px]" />
           </div>

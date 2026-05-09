@@ -27,7 +27,7 @@
   }
 
   .editorial-subhead {
-    @apply font-sans text-[15px] uppercase tracking-tightish sm:text-[18px] lg:text-[20px];
+    @apply font-sans text-[15px] uppercase tracking-tightish sm:text-[18px] lg:text-[20px] 2xl:text-[21px];
   }
 
   .editorial-caption {
