@@ -11,8 +11,8 @@ export function HomePage() {
         Desktop matches reference — title lower-left, description column to the right; copy remains text-left
         inside its measure so the right edge of the paragraph lines up with the nav column.
       */}
-      <section className="flex min-h-dvh flex-col overflow-hidden overflow-x-clip">
-        <Container className="flex w-full flex-1 flex-col justify-end pb-16 pt-10 sm:pb-20 sm:pt-16 lg:pb-24">
+      <section className="flex min-h-viewport flex-col overflow-hidden overflow-x-clip">
+        <Container className="flex min-h-0 w-full min-w-0 flex-1 flex-col justify-end pb-[max(4rem,env(safe-area-inset-bottom,0px))] pt-10 sm:pb-24 sm:pt-16 lg:pb-28 lg:pt-20">
           <div className="flex w-full min-w-0 flex-col gap-8 lg:flex-row lg:items-end lg:gap-12 xl:gap-16 2xl:gap-20">
             <h1 className="editorial-h1 max-w-[18ch] shrink-0 text-balance">
               Olesia Astakhova
@@ -27,8 +27,8 @@ export function HomePage() {
         </Container>
       </section>
 
-      <section>
-        <Container className="pb-14 pt-8 sm:pb-20 lg:pt-14">
+      <section className="section-y">
+        <Container>
           <div className="grid gap-10 lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
             <div className="space-y-8">
               <div className="space-y-6">
@@ -66,8 +66,8 @@ export function HomePage() {
         </Container>
       </section>
 
-      <section>
-        <Container className="pb-16 pt-10 sm:pb-20">
+      <section className="section-y">
+        <Container>
           <div className="flex flex-col gap-10">
             <div className="flex items-end justify-between gap-6 py-4">
               <h2 className="editorial-h1">Selected works</h2>

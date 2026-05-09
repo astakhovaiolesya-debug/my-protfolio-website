@@ -7,7 +7,14 @@ type ContainerProps = {
 
 export function Container({ children, className }: ContainerProps) {
   return (
-    <div className={['mx-auto w-full max-w-[1440px] px-5 sm:px-8', className].filter(Boolean).join(' ')}>
+    <div
+      className={[
+        'mx-auto w-full max-w-[1440px] px-5 sm:px-8 2xl:px-10',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
       {children}
     </div>
   )

@@ -63,7 +63,7 @@ export function ProjectPageQuietGrowth() {
               </p>
             </div>
 
-            <div className="flex min-h-[280px] min-w-0 items-center justify-center overflow-hidden bg-warm/10 lg:min-h-[min(70vh,640px)]">
+            <div className="flex min-h-[min(40dvh,18rem)] min-w-0 items-center justify-center overflow-hidden bg-warm/10 lg:min-h-[min(70dvh,40rem)]">
               <img
                 src="/images/quiet-stationery.jpg"
                 alt=""

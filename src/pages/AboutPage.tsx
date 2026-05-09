@@ -38,8 +38,8 @@ const services = [
 export function AboutPage() {
   return (
     <>
-      <section>
-        <Container className="pb-14 pt-10 sm:pb-16 sm:pt-16">
+      <section className="section-y-tight">
+        <Container>
           <div className="grid min-h-0 gap-12 lg:grid-cols-[minmax(0,_640px)_minmax(0,_1fr)] lg:items-end lg:gap-[30px]">
             <div className="min-w-0 space-y-8">
               <h1 className="editorial-h1">About</h1>
@@ -72,8 +72,8 @@ export function AboutPage() {
         </Container>
       </section>
 
-      <section>
-        <Container className="pb-16 pt-12 sm:pb-20">
+      <section className="section-y">
+        <Container>
           <div className="space-y-10">
             <h2 className="editorial-h1">Services</h2>
 

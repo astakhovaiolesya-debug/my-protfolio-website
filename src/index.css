@@ -5,10 +5,15 @@
 @layer base {
   html {
     @apply bg-paper text-ink antialiased overflow-x-clip scroll-smooth;
+    /* Stable mobile viewport first, then dynamic when supported (address bar / UI chrome). */
+    min-height: 100svh;
+    min-height: 100dvh;
   }
 
   body {
-    @apply min-h-dvh min-w-[320px] font-body text-[14px] leading-[1.45] overflow-x-clip text-pretty;
+    @apply min-w-[320px] font-body text-[14px] leading-[1.45] overflow-x-clip text-pretty;
+    min-height: 100svh;
+    min-height: 100dvh;
   }
 
   ::selection {
@@ -17,6 +22,21 @@
 }
 
 @layer utilities {
+  /* Full viewport min-height: svh avoids initial clip on mobile; dvh tracks chrome when supported. */
+  .min-h-viewport {
+    min-height: 100svh;
+    min-height: 100dvh;
+  }
+
+  /* Shared vertical rhythm for content sections (pages + inner sections). */
+  .section-y {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .section-y-tight {
+    @apply py-10 sm:py-14 lg:py-16;
+  }
+
   .editorial-h1 {
     @apply font-serif font-semibold tracking-tight text-[42px] max-[380px]:text-[34px] leading-[1.06] sm:text-[56px]
       sm:leading-[1.06] lg:text-[72px] lg:leading-[78px];

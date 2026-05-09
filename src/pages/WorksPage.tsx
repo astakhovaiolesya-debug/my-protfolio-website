@@ -4,8 +4,8 @@ import { projects } from '../data/projects'
 
 export function WorksPage() {
   return (
-    <section>
-      <Container className="pb-16 pt-10 sm:pb-20 sm:pt-14">
+    <section className="section-y-tight">
+      <Container>
         <div className="flex flex-col gap-10 sm:gap-12">
           <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 py-2 sm:py-4">
             <h1 className="editorial-h1">Selected works</h1>
