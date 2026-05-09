@@ -11,8 +11,8 @@ const items = [
   { to: '/works', label: 'Works' },
 ]
 
-/** Matches sticky header: py-4 + 56px logo */
-const MOBILE_NAV_TOP = 88
+/** Matches sticky header: py-5 + 56px logo */
+const MOBILE_NAV_TOP = 96
 
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const titleId = useId()

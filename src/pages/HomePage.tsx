@@ -6,16 +6,19 @@ import { projects } from '../data/projects'
 export function HomePage() {
   return (
     <>
-      <section className="flex min-h-[100svh] flex-col overflow-hidden overflow-x-clip lg:min-h-[min(92vh,_840px)]">
-        <Container className="flex w-full flex-1 flex-col justify-end pb-14 pt-10 sm:pt-16">
-          {/*
-            Desktop: editorial block sits on the RIGHT (ml-auto), copy stays LEFT-aligned inside the block.
-            Tagline max-width is tuned so the line breaks read as ~3 lines at lg–2xl within the 1440px frame.
-          */}
-          <div className="flex w-full min-w-0 flex-col pb-4 lg:items-end">
-            <div className="flex w-full max-w-full flex-col gap-6 text-left lg:ml-auto lg:gap-8 lg:max-w-[min(44ch,520px)] xl:max-w-[min(42ch,500px)] 2xl:max-w-[min(40ch,480px)]">
-              <h1 className="editorial-h1 max-w-[18ch] text-balance lg:max-w-none">Olesia Astakhova</h1>
-              <p className="editorial-subhead max-w-[38ch] text-ink/90 text-pretty leading-[1.38] sm:max-w-[40ch] lg:max-w-[44ch] lg:leading-[1.34] xl:max-w-[42ch] 2xl:max-w-[38ch] 2xl:leading-[1.32]">
+      {/*
+        Hero: full viewport height, content anchored to the bottom (editorial negative space above).
+        Desktop matches reference — title lower-left, description column to the right; copy remains text-left
+        inside its measure so the right edge of the paragraph lines up with the nav column.
+      */}
+      <section className="flex min-h-dvh flex-col overflow-hidden overflow-x-clip">
+        <Container className="flex w-full flex-1 flex-col justify-end pb-16 pt-10 sm:pb-20 sm:pt-16 lg:pb-24">
+          <div className="flex w-full min-w-0 flex-col gap-8 lg:flex-row lg:items-end lg:gap-12 xl:gap-16 2xl:gap-20">
+            <h1 className="editorial-h1 max-w-[18ch] shrink-0 text-balance">
+              Olesia Astakhova
+            </h1>
+            <div className="flex min-w-0 flex-1 flex-col lg:items-end">
+              <p className="editorial-subhead w-full max-w-[40ch] text-left text-ink/90 text-pretty leading-[1.38] sm:max-w-[42ch] lg:max-w-[min(38ch,34rem)] xl:max-w-[min(40ch,36rem)]">
                 A Dublin-based graphic communication designer specialising in branding and typography, from concept
                 through to print and digital production.
               </p>
