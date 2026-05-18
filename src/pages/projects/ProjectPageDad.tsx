@@ -34,17 +34,16 @@ export function ProjectPageDad() {
       </section>
 
       <section aria-label="Featured motion reel" className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-clip bg-paper py-8 sm:py-10 lg:py-12">
-        <div className="relative mx-auto aspect-[323/575] max-h-[min(92svh,_980px)] w-full min-w-0 lg:max-h-[min(88svh,_1024px)] lg:max-w-[min(92vw,_900px)]">
+        <div className="relative mx-auto aspect-[9/16] w-full max-w-[min(100%,_min(92vw,_540px))] max-h-[min(92svh,_980px)] min-w-0 lg:max-h-[min(88svh,_1024px)]">
           <video
             className="absolute inset-0 h-full w-full bg-warm/[0.12] object-cover"
             controls
             playsInline
             preload="metadata"
           >
-            <source src="/videos/animation_sound_effects.mp4" type="video/mp4" />
-            <source src="/videos/animation_sound_effects.mov" type="video/quicktime" />
+            <source src="/videos/animation.mp4" type="video/mp4" />
             Download the{' '}
-            <a href="/videos/animation_sound_effects.mp4" className="underline underline-offset-2">
+            <a href="/videos/animation.mp4" className="underline underline-offset-2">
               video (MP4)
             </a>
             .
