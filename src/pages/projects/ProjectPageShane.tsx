@@ -1,33 +1,19 @@
 import { Container } from '../../components/Container'
 import { NextProjectLink } from '../../components/NextProjectLink'
+import { ProjectHero } from '../../components/ProjectHero'
 
 export function ProjectPageShane() {
   return (
     <>
-      <section>
-        <Container className="pb-10 pt-10 sm:pt-16">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,788px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
-            <div className="space-y-8">
-              <div className="space-y-2">
-                <h1 className="editorial-h1">Shane MacGowan Merchandise</h1>
-                <p className="editorial-caption">Vinyl design / Apparel / Print / Accessories</p>
-              </div>
-
-              <div className="space-y-2">
-                <p className="editorial-subhead">THE BRIEF:</p>
-                <p className="max-w-[60ch] text-ink/75">
-                  Design a merchandise range for Shane MacGowan that honours his legacy and appeals to a younger
-                  audience.
-                </p>
-              </div>
-            </div>
-
-            <div className="overflow-hidden bg-warm/10">
-              <img src="/images/shane-hero.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ProjectHero
+        title="Shane MacGowan Merchandise"
+        caption="Vinyl design / Apparel / Print / Accessories"
+        brief="Design a merchandise range for Shane MacGowan that honours his legacy and appeals to a younger audience."
+        imageSrc="/images/shane-hero.jpg"
+        wideTitle
+        imageMaxHeight={647}
+        imageMaxWidth={558}
+      />
 
       <section>
         <Container className="pb-10">
@@ -82,4 +68,3 @@ export function ProjectPageShane() {
     </>
   )
 }
-

@@ -53,4 +53,19 @@
   .editorial-caption {
     @apply font-serif italic font-extralight text-[13px] leading-normal text-warm;
   }
+
+  /*
+    Case study hero: exactly 100vh; image frame scales from viewport height with per-project
+    max caps set via --hero-media-max-h / --hero-media-max-w on the element.
+  */
+  .casestudy-hero-media {
+    height: clamp(10rem, calc(100vh - 18rem), var(--hero-media-max-h, 761px));
+    max-width: min(100%, var(--hero-media-max-w, 673px));
+  }
+
+  @media (min-width: 1024px) {
+    .casestudy-hero-media {
+      height: clamp(12rem, calc(100vh - 14rem), var(--hero-media-max-h, 761px));
+    }
+  }
 }

@@ -1,33 +1,18 @@
 import { Container } from '../../components/Container'
 import { NextProjectLink } from '../../components/NextProjectLink'
+import { ProjectHero } from '../../components/ProjectHero'
 
 export function ProjectPageColab() {
   return (
     <>
-      <section >
-        <Container className="pb-10 pt-10 sm:pt-16">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
-            <div className="space-y-8">
-              <div className="space-y-2">
-                <h1 className="editorial-h1">Colab branding</h1>
-                <p className="editorial-caption">Logo Design / Brand Identity / Print</p>
-              </div>
-
-              <div className="space-y-2">
-                <p className="editorial-subhead">THE BRIEF:</p>
-                <p className="max-w-[60ch] text-ink/75">
-                  Design a visual identity for The CoLab, a hybrid coffee shop and co-working space for young creatives
-                  to meet, collaborate, and grow.
-                </p>
-              </div>
-            </div>
-
-            <div className="overflow-hidden bg-warm/10">
-              <img src="/images/colab-sign.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ProjectHero
+        title="Colab branding"
+        caption="Logo Design / Brand Identity / Print"
+        brief="Design a visual identity for The CoLab, a hybrid coffee shop and co-working space for young creatives to meet, collaborate, and grow."
+        imageSrc="/images/colab-sign.jpg"
+        imageMaxHeight={761}
+        imageMaxWidth={673}
+      />
 
       <section>
         <Container className="pb-8">
@@ -82,4 +67,3 @@ export function ProjectPageColab() {
     </>
   )
 }
-

@@ -1,37 +1,23 @@
 import { Container } from '../../components/Container'
 import { NextProjectLink } from '../../components/NextProjectLink'
+import { ProjectHero } from '../../components/ProjectHero'
 
 export function ProjectPageDad() {
   return (
     <>
-      <section>
-        <Container className="pb-10 pt-10 sm:pt-16">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
-            <div className="space-y-8">
-              <div className="space-y-2">
-                <h1 className="editorial-h1">
-                  D&amp;AD <br className="hidden lg:block" />
-                  awards brief
-                </h1>
-                <p className="editorial-caption">Motion Graphics / Social Media / Visual Storytelling</p>
-              </div>
-
-              <div className="space-y-2">
-                <p className="editorial-subhead">THE BRIEF:</p>
-                <p className="max-w-[60ch] text-ink/75">
-                  Secret 7” is a charity project where musicians and artists collaborate to create unique vinyl
-                  records, raising funds for War Child. For its 10th anniversary, the brief invited a series of social
-                  media content (reels or stories) that captures the story.
-                </p>
-              </div>
-            </div>
-
-            <div className="overflow-hidden bg-warm/10">
-              <img src="/images/iphone-mockup-1.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ProjectHero
+        title={
+          <>
+            D&amp;AD <br className="hidden lg:block" />
+            awards brief
+          </>
+        }
+        caption="Motion Graphics / Social Media / Visual Storytelling"
+        brief="Secret 7” is a charity project where musicians and artists collaborate to create unique vinyl records, raising funds for War Child. For its 10th anniversary, the brief invited a series of social media content (reels or stories) that captures the story."
+        imageSrc="/images/iphone-mockup-1.jpg"
+        imageMaxHeight={756}
+        imageMaxWidth={673}
+      />
 
       <section aria-label="Featured motion reel" className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-clip bg-paper py-8 sm:py-10 lg:py-12">
         <div className="relative mx-auto aspect-[9/16] w-full max-w-[min(100%,_min(92vw,_540px))] max-h-[min(92svh,_980px)] min-w-0 lg:max-h-[min(88svh,_1024px)]">
@@ -72,4 +58,3 @@ export function ProjectPageDad() {
     </>
   )
 }
-

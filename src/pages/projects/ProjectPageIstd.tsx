@@ -1,34 +1,19 @@
 import { Container } from '../../components/Container'
 import { NextProjectLink } from '../../components/NextProjectLink'
+import { ProjectHero } from '../../components/ProjectHero'
 
 export function ProjectPageIstd() {
   return (
     <>
-      <section>
-        <Container className="pb-10 pt-10 sm:pt-16">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,788px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
-            <div className="space-y-8">
-              <div className="space-y-2">
-                <h1 className="editorial-h1">ISTD Typography submission</h1>
-                <p className="editorial-caption">Typography / Editorial Design / Print / Binding</p>
-              </div>
-
-              <div className="space-y-2">
-                <p className="editorial-subhead">THE BRIEF:</p>
-                <p className="max-w-[60ch] text-ink/75">
-                  Choose a traditional craft or trade that has declined or disappeared and make a case for why it
-                  still matters today. Research its history, techniques and social role, then identify a unique
-                  insight and develop a creative design outcome in an appropriate format.
-                </p>
-              </div>
-            </div>
-
-            <div className="overflow-hidden bg-warm/10">
-              <img src="/images/istd-hero.jpg" alt="" className="h-full w-full object-cover" loading="lazy" />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <ProjectHero
+        title="ISTD Typography submission"
+        caption="Typography / Editorial Design / Print / Binding"
+        brief="Choose a traditional craft or trade that has declined or disappeared and make a case for why it still matters today. Research its history, techniques and social role, then identify a unique insight and develop a creative design outcome in an appropriate format."
+        imageSrc="/images/istd-hero.jpg"
+        wideTitle
+        imageMaxHeight={668}
+        imageMaxWidth={558}
+      />
 
       <section aria-label="Project video" className="pb-10">
         {/*
@@ -97,4 +82,3 @@ export function ProjectPageIstd() {
     </>
   )
 }
-
