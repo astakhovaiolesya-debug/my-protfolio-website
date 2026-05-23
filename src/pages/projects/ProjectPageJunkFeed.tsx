@@ -11,7 +11,7 @@ export function ProjectPageJunkFeed() {
     <>
       <ProjectHero
         title="Junk Feed Campaign"
-        caption="Logo Design / Brand Identity / Web Design / Social Media / Print design"
+        caption="Logo Design / Brand Identity / Web Design / Social Media / Print design / Vibe coding"
         brief={
           <>
             <p>
@@ -30,6 +30,7 @@ export function ProjectPageJunkFeed() {
         imageSrc="/images/junk-feed-hero.jpg"
         imageMaxHeight={706}
         imageMaxWidth={673}
+        largeImage
       />
 
       <div className="flex flex-col gap-8">

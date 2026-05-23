@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-accent text-paper">
-      <div className="mx-auto w-full max-w-[1440px] px-5 pb-4 pt-10 sm:px-8 2xl:px-10">
+    <footer id="contact" className="flex min-h-[480px] flex-col bg-accent text-paper">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-between px-5 pb-4 pt-10 sm:px-8 2xl:px-10">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-24">
             <div className="space-y-3 lg:space-y-6">
@@ -71,7 +71,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex min-w-0 flex-wrap items-end justify-between gap-6">
+        <div className="flex min-w-0 flex-wrap items-end justify-between gap-6">
           <a
             href="mailto:astakhovaiolesya@gmail.com"
             className="min-w-0 shrink font-serif text-[clamp(34px,_10vw,_44px)] font-semibold leading-[1.06] text-paper transition-opacity duration-200 hover:opacity-85 sm:text-[56px] lg:text-[72px] lg:leading-[78px]"
@@ -84,4 +84,3 @@ export function Footer() {
     </footer>
   )
 }
-

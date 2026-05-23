@@ -67,5 +67,11 @@
     .casestudy-hero-media {
       height: clamp(12rem, calc(100vh - 14rem), var(--hero-media-max-h, 761px));
     }
+
+    /* Tall hero images (e.g. Junk Feed 706px) — use more of the viewport. */
+    .casestudy-hero-media--large {
+      height: clamp(16rem, calc(100vh - 10rem), var(--hero-media-max-h, 761px));
+      width: min(100%, var(--hero-media-max-w, 673px));
+    }
   }
 }

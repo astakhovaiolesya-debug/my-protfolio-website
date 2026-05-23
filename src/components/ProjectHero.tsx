@@ -13,6 +13,8 @@ type ProjectHeroProps = {
   imageMaxHeight?: number
   imageMaxWidth?: number
   imageObjectPosition?: string
+  /** Fixed-width image column + taller viewport scaling (Junk Feed). */
+  largeImage?: boolean
 }
 
 export function ProjectHero({
@@ -25,11 +27,16 @@ export function ProjectHero({
   imageMaxHeight = 761,
   imageMaxWidth = 673,
   imageObjectPosition = 'center',
+  largeImage = false,
 }: ProjectHeroProps) {
   const mediaStyle = {
     '--hero-media-max-h': `${imageMaxHeight}px`,
     '--hero-media-max-w': `${imageMaxWidth}px`,
   } as CSSProperties
+
+  const gridStyle = largeImage
+    ? ({ gridTemplateColumns: `minmax(0, 1fr) minmax(0, ${imageMaxWidth}px)` } as CSSProperties)
+    : undefined
 
   return (
     <section className="flex h-[100vh] flex-col overflow-hidden overflow-x-clip">
@@ -37,10 +44,14 @@ export function ProjectHero({
         <div
           className={[
             'grid min-h-0 w-full min-w-0 gap-10 sm:gap-12 lg:items-end lg:gap-[30px]',
-            wideTitle
-              ? 'lg:grid-cols-[minmax(0,788px)_minmax(0,1fr)]'
-              : 'lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)]',
-          ].join(' ')}
+            !largeImage &&
+              (wideTitle
+                ? 'lg:grid-cols-[minmax(0,788px)_minmax(0,1fr)]'
+                : 'lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)]'),
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          style={gridStyle}
         >
           <div className="min-w-0 space-y-6 sm:space-y-8">
             <div className="space-y-2">
@@ -55,7 +66,13 @@ export function ProjectHero({
           </div>
 
           <div className="flex min-h-0 min-w-0 items-end justify-start lg:justify-end">
-            <div className="casestudy-hero-media w-full overflow-hidden bg-warm/10" style={mediaStyle}>
+            <div
+              className={[
+                'casestudy-hero-media overflow-hidden bg-warm/10',
+                largeImage ? 'casestudy-hero-media--large w-full' : 'w-full',
+              ].join(' ')}
+              style={mediaStyle}
+            >
               <img
                 src={imageSrc}
                 alt={imageAlt}
