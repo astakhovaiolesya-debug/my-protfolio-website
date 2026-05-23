@@ -33,22 +33,24 @@ export function ProjectPageJunkFeed() {
         largeImage
       />
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col">
         {/* Figma 304:529 — 679×475 + 679×475 */}
         <section aria-label="Campaign print and outdoor">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <CaseStudyImage src="/images/junk-feed-leaflet.jpg" aspectClassName="aspect-[679/475]" />
-            <CaseStudyImage
-              src="/images/junk-feed-bus-shelter.jpg"
-              aspectClassName="aspect-[679/475]"
-              objectPosition="center top"
-            />
-          </div>
+          <Container className="py-[32px]">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <CaseStudyImage src="/images/junk-feed-leaflet.jpg" aspectClassName="aspect-[679/475]" />
+              <CaseStudyImage
+                src="/images/junk-feed-bus-shelter.jpg"
+                aspectClassName="aspect-[679/475]"
+                objectPosition="center top"
+              />
+            </div>
+          </Container>
         </section>
 
         {/* Figma 304:532 — 570px text + 675×409 image */}
         <section>
-          <Container className="py-6">
+          <Container className="py-[32px]">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,570px)_minmax(0,675px)] lg:items-end lg:justify-between lg:gap-[30px]">
               <div className="space-y-2">
                 <p className="editorial-subhead">MY APPROACH:</p>
@@ -87,17 +89,19 @@ export function ProjectPageJunkFeed() {
 
         {/* Figma 317:628 — 358×475 + 994×475 */}
         <section aria-label="Campaign social and print">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,358fr)_minmax(0,994fr)]">
-            <CaseStudyImage src="/images/junk-feed-social-1.jpg" aspectClassName="aspect-[358/475]" />
-            <CaseStudyImage src="/images/junk-feed-social-2.jpg" aspectClassName="aspect-[994/475]" />
-          </div>
+          <Container className="py-[32px]">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,358fr)_minmax(0,994fr)]">
+              <CaseStudyImage src="/images/junk-feed-social-1.jpg" aspectClassName="aspect-[358/475]" />
+              <CaseStudyImage src="/images/junk-feed-social-2.jpg" aspectClassName="aspect-[994/475]" />
+            </div>
+          </Container>
         </section>
 
         {/* Figma 317:635 — 1373×600 website mockup */}
         <section aria-label="Campaign website">
-          <div className="mx-auto w-full max-w-[1373px]">
+          <Container className="py-[32px]">
             <CaseStudyImage src="/images/junk-feed-website.jpg" aspectClassName="aspect-[1373/600]" />
-          </div>
+          </Container>
         </section>
 
         <section>

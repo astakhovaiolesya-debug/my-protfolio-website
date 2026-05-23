@@ -16,9 +16,10 @@ export function ProjectPageQuietGrowth() {
         }
         caption="Logo Design / Brand Identity / Print"
         brief="Design a brand with a clear purpose and a product offer that connects emotionally with its audience, tells a compelling story, and is ready to be presented to Irish retailers and buyers at Showcase Ireland 2026."
-        imageSrc="/images/quiet-mockup.jpg"
+        imageSrc="/images/quiet-hero.jpg"
         imageMaxHeight={706}
         imageMaxWidth={673}
+        largeImage
       />
 
       <div className="flex flex-col gap-8">
