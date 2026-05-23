@@ -10,15 +10,16 @@ export function ProjectPageIstd() {
       <ProjectHero
         title="ISTD Typography submission"
         caption="Typography / Editorial Design / Print / Binding"
-        brief="Choose a traditional craft or trade that has declined or disappeared and make a case for why it still matters today. Research its history, techniques and social role, then identify a unique insight and develop a creative design outcome in an appropriate format."
+        brief="Choose a traditional craft or trade that has declined or disappeared and make a case for why it still matters today. Research its history, techniques and social role, then identify a unique insight and develop a creative design outcome in an appropriate format such as a book, film or installation, aimed at a clearly defined audience."
         imageSrc="/images/istd-hero.jpg"
         wideTitle
         imageMaxHeight={575}
         imageMaxWidth={558}
+        imageObjectPosition="62% 28%"
       />
 
       <div className="flex flex-col gap-8">
-        {/* Figma 173:422 — 1378×775 project video */}
+        {/* Figma 173:422 — 1378×775 project video (unchanged) */}
         <section aria-label="Project video">
           <Container>
             <div className="relative aspect-[1378/775] w-full overflow-hidden bg-warm/10">
@@ -46,29 +47,49 @@ export function ProjectPageIstd() {
             <div className="grid gap-10 lg:grid-cols-[minmax(0,570px)_minmax(0,558px)] lg:items-end lg:justify-between lg:gap-[30px]">
               <div className="space-y-2">
                 <p className="editorial-subhead">MY APPROACH:</p>
-                <p className="max-w-[570px] whitespace-pre-wrap text-[14px] leading-normal text-ink/75">
-                  This project responds to the ISTD Trade Matters brief by focusing on pysanka, a traditional Ukrainian
-                  craft of decorating eggs with symbolic patterns, historically rooted in ritual, heritage and community
-                  life. Once a shared family practice connecting generations and belief systems, pysanka is increasingly
-                  recognised but rarely practiced, particularly among younger and urban audiences.
-                </p>
+                <div className="max-w-[570px] space-y-3 text-[14px] leading-normal text-ink/75">
+                  <p>
+                    This project responds to the ISTD Trade Matters brief by focusing on pysanka, a traditional
+                    Ukrainian craft of decorating eggs with symbolic patterns, historically rooted in ritual, heritage
+                    and community life. Once a shared family practice connecting generations and belief systems,
+                    pysanka is increasingly recognised but rarely practiced, particularly among younger and urban
+                    audiences.
+                  </p>
+                  <p>
+                    The chosen format is a book, structured to guide the reader from historical and cultural context,
+                    through personal interviews and lived experiences, and back to the wider tradition, allowing the
+                    reader to first understand pysanka, then feel it through real voices. Kharkiv Tone was selected as
+                    the primary typeface for headings and pagination, inspired by traditional Ukrainian lettering but
+                    modernised for contemporary print. The colour palette draws directly from the visual traditions of
+                    pysanka.
+                  </p>
+                </div>
               </div>
 
               <CaseStudyImage
                 src="/images/istd-approach.jpg"
                 aspectClassName="aspect-[558/397]"
                 className="lg:max-w-[558px] lg:justify-self-end"
+                objectPosition="66% 38%"
               />
             </div>
           </Container>
         </section>
 
-        {/* Figma 312:604 — 742×463 + 616×462 */}
+        {/* Figma 312:604 — 742×463 + 616×462, 24px gap, full bleed within container */}
         <section aria-label="Book spreads">
           <Container className="pb-2">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,742fr)_minmax(0,616fr)]">
-              <CaseStudyImage src="/images/istd-spread-1.jpg" aspectClassName="aspect-[742/463]" />
-              <CaseStudyImage src="/images/istd-spread-2.jpg" aspectClassName="aspect-[616/462]" />
+              <CaseStudyImage
+                src="/images/istd-spread-1.jpg"
+                aspectClassName="aspect-[742/463]"
+                objectPosition="52% 32%"
+              />
+              <CaseStudyImage
+                src="/images/istd-spread-2.jpg"
+                aspectClassName="aspect-[616/462]"
+                objectPosition="58% 48%"
+              />
             </div>
           </Container>
         </section>

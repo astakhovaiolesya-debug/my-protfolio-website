@@ -12,6 +12,7 @@ type ProjectHeroProps = {
   /** Figma hero image caps — scale down fluidly below these on shorter viewports. */
   imageMaxHeight?: number
   imageMaxWidth?: number
+  imageObjectPosition?: string
 }
 
 export function ProjectHero({
@@ -23,6 +24,7 @@ export function ProjectHero({
   wideTitle = false,
   imageMaxHeight = 761,
   imageMaxWidth = 673,
+  imageObjectPosition = 'center',
 }: ProjectHeroProps) {
   const mediaStyle = {
     '--hero-media-max-h': `${imageMaxHeight}px`,
@@ -58,6 +60,7 @@ export function ProjectHero({
                 src={imageSrc}
                 alt={imageAlt}
                 className="h-full w-full object-cover"
+                style={{ objectPosition: imageObjectPosition }}
                 loading="eager"
                 decoding="async"
                 sizes="(min-width: 1024px) 47vw, 100vw"

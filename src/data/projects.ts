@@ -25,7 +25,7 @@ export const projects: Project[] = [
     title: 'ISTD Typography Submission',
     subtitle: 'Typography / Editorial Design / Print / Binding',
     href: '/works/istd-typography-submission',
-    coverImage: '/images/istd-hero.jpg',
+    coverImage: '/images/istd-cover.jpg',
     imageClassName: 'lg:h-[477px]',
   },
   {
