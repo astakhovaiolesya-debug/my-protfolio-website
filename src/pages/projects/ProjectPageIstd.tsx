@@ -15,7 +15,6 @@ export function ProjectPageIstd() {
         wideTitle
         imageMaxHeight={575}
         imageMaxWidth={558}
-        imageObjectPosition="62% 28%"
       />
 
       <div className="flex flex-col gap-8">
@@ -70,7 +69,6 @@ export function ProjectPageIstd() {
                 src="/images/istd-approach.jpg"
                 aspectClassName="aspect-[558/397]"
                 className="lg:max-w-[558px] lg:justify-self-end"
-                objectPosition="66% 38%"
               />
             </div>
           </Container>
@@ -83,12 +81,10 @@ export function ProjectPageIstd() {
               <CaseStudyImage
                 src="/images/istd-spread-1.jpg"
                 aspectClassName="aspect-[742/463]"
-                objectPosition="52% 32%"
               />
               <CaseStudyImage
                 src="/images/istd-spread-2.jpg"
                 aspectClassName="aspect-[616/462]"
-                objectPosition="58% 48%"
               />
             </div>
           </Container>
