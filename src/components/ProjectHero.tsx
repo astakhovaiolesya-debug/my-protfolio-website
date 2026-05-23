@@ -4,7 +4,7 @@ import { Container } from './Container'
 type ProjectHeroProps = {
   title: ReactNode
   caption: string
-  brief: string
+  brief: ReactNode
   imageSrc: string
   imageAlt?: string
   /** Wider text track for long titles (ISTD, Shane). */
@@ -48,7 +48,7 @@ export function ProjectHero({
 
             <div className="space-y-2">
               <p className="editorial-subhead">THE BRIEF:</p>
-              <p className="max-w-[60ch] text-pretty text-ink/75">{brief}</p>
+              <div className="max-w-[60ch] space-y-1 text-pretty text-ink/75 [&_p]:text-ink/75">{brief}</div>
             </div>
           </div>
 

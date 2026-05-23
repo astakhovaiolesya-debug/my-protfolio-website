@@ -1,6 +1,7 @@
 import { Container } from '../../components/Container'
 import { NextProjectLink } from '../../components/NextProjectLink'
 import { ProjectHero } from '../../components/ProjectHero'
+import { getNextProjectHref } from '../../data/projects'
 
 export function ProjectPageDad() {
   return (
@@ -52,7 +53,7 @@ export function ProjectPageDad() {
 
       <section>
         <Container className="flex justify-end py-8">
-          <NextProjectLink to="/works/istd-typography-submission" />
+          <NextProjectLink to={getNextProjectHref('/works/dad-awards-brief')} />
         </Container>
       </section>
     </>

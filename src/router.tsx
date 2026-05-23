@@ -3,6 +3,7 @@ import { RootLayout } from './layouts/RootLayout'
 import { AboutPage } from './pages/AboutPage'
 import { HomePage } from './pages/HomePage'
 import { WorksPage } from './pages/WorksPage'
+import { ProjectPageJunkFeed } from './pages/projects/ProjectPageJunkFeed'
 import { ProjectPageColab } from './pages/projects/ProjectPageColab'
 import { ProjectPageDad } from './pages/projects/ProjectPageDad'
 import { ProjectPageIstd } from './pages/projects/ProjectPageIstd'
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
       { path: '/', element: <HomePage /> },
       { path: '/about', element: <AboutPage /> },
       { path: '/works', element: <WorksPage /> },
+      { path: '/works/junk-feed-campaign', element: <ProjectPageJunkFeed /> },
       { path: '/works/colab-branding', element: <ProjectPageColab /> },
       { path: '/works/dad-awards-brief', element: <ProjectPageDad /> },
       { path: '/works/istd-typography-submission', element: <ProjectPageIstd /> },

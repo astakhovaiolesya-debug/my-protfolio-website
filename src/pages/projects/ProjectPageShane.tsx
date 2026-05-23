@@ -1,6 +1,7 @@
 import { Container } from '../../components/Container'
 import { NextProjectLink } from '../../components/NextProjectLink'
 import { ProjectHero } from '../../components/ProjectHero'
+import { getNextProjectHref } from '../../data/projects'
 
 export function ProjectPageShane() {
   return (
@@ -62,7 +63,7 @@ export function ProjectPageShane() {
 
       <section>
         <Container className="flex justify-end py-8">
-          <NextProjectLink to="/works/quiet-growth-branding" />
+          <NextProjectLink to={getNextProjectHref('/works/shane-macgowan-merchandise')} />
         </Container>
       </section>
     </>

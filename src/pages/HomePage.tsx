@@ -79,13 +79,8 @@ export function HomePage() {
                 <ProjectCard
                   key={p.id}
                   project={p}
-                  imageClassName={[
-                    p.id === 'colab' ? 'lg:h-[594px]' : '',
-                    p.id === 'dad' ? 'lg:h-[488px]' : '',
-                    p.id === 'istd' ? 'lg:h-[477px]' : '',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
+                  className={p.cardClassName}
+                  imageClassName={p.imageClassName}
                 />
               ))}
             </div>

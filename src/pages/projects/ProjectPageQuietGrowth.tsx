@@ -1,6 +1,7 @@
 import { Container } from '../../components/Container'
 import { NextProjectLink } from '../../components/NextProjectLink'
 import { ProjectHero } from '../../components/ProjectHero'
+import { getNextProjectHref } from '../../data/projects'
 
 export function ProjectPageQuietGrowth() {
   return (
@@ -62,7 +63,7 @@ export function ProjectPageQuietGrowth() {
 
       <section>
         <Container className="flex justify-end py-8">
-          <NextProjectLink to="/works" label="back to works" />
+          <NextProjectLink to={getNextProjectHref('/works/quiet-growth-branding')} />
         </Container>
       </section>
     </>

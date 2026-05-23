@@ -1,6 +1,7 @@
 import { Container } from '../../components/Container'
 import { NextProjectLink } from '../../components/NextProjectLink'
 import { ProjectHero } from '../../components/ProjectHero'
+import { getNextProjectHref } from '../../data/projects'
 
 export function ProjectPageColab() {
   return (
@@ -61,7 +62,7 @@ export function ProjectPageColab() {
 
       <section>
         <Container className="flex justify-end py-8">
-          <NextProjectLink to="/works/dad-awards-brief" />
+          <NextProjectLink to={getNextProjectHref('/works/colab-branding')} />
         </Container>
       </section>
     </>
