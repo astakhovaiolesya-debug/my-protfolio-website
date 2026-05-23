@@ -20,42 +20,50 @@ export function ProjectPageDad() {
         imageMaxWidth={673}
       />
 
-      <section aria-label="Featured motion reel" className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-clip bg-paper py-8 sm:py-10 lg:py-12">
-        <div className="relative mx-auto aspect-[9/16] w-full max-w-[min(100%,_min(92vw,_540px))] max-h-[min(92svh,_980px)] min-w-0 lg:max-h-[min(88svh,_1024px)]">
-          <video
-            className="absolute inset-0 h-full w-full bg-warm/[0.12] object-cover"
-            controls
-            playsInline
-            preload="metadata"
-          >
-            <source src="/videos/animation.mp4" type="video/mp4" />
-            Download the{' '}
-            <a href="/videos/animation.mp4" className="underline underline-offset-2">
-              video (MP4)
-            </a>
-            .
-          </video>
-        </div>
-      </section>
+      <div className="flex flex-col gap-8">
+        {/* Figma 150:447 — motion reel, left-aligned, 323×575 frame */}
+        <section aria-label="Featured motion reel">
+          <Container className="py-6">
+            <div className="relative aspect-[323/575] w-full max-w-[323px] min-w-0">
+              <video
+                className="absolute inset-0 h-full w-full bg-warm/[0.12] object-cover"
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source src="/videos/animation.mp4" type="video/mp4" />
+                Download the{' '}
+                <a href="/videos/animation.mp4" className="underline underline-offset-2">
+                  video (MP4)
+                </a>
+                .
+              </video>
+            </div>
+          </Container>
+        </section>
 
-      <section>
-        <Container className="py-10 sm:py-12 lg:pb-14 lg:pt-6">
-          <div className="max-w-[60ch] space-y-2">
-            <p className="editorial-subhead">MY APPROACH:</p>
-            <p className="text-ink/75">
-              The concept focuses on transforming music into meaningful impact through visual storytelling. The
-              animation begins with themes of global conflict and disconnection, transitioning into a narrative of
-              creativity, collaboration, and collective action.
-            </p>
-          </div>
-        </Container>
-      </section>
+        {/* Figma 150:448 — approach copy, 570px measure */}
+        <section>
+          <Container className="py-6">
+            <div className="max-w-[570px] space-y-2">
+              <p className="editorial-subhead">MY APPROACH:</p>
+              <p className="max-w-[439px] text-[14px] leading-normal text-ink/75">
+                The concept focuses on transforming music into meaningful impact through visual storytelling. The
+                animation begins with themes of global conflict and disconnection, transitioning into a narrative of
+                creativity, collaboration, and collective action. Using a mixed media approach, the animation combines
+                contrasting styles to create an emotional progression. Key metaphors, such as the transformation of a
+                vinyl record into a coin, highlight how art and music can generate real world support.
+              </p>
+            </div>
+          </Container>
+        </section>
 
-      <section>
-        <Container className="flex justify-end py-8">
-          <NextProjectLink to={getNextProjectHref('/works/dad-awards-brief')} />
-        </Container>
-      </section>
+        <section>
+          <Container className="flex justify-end py-8">
+            <NextProjectLink to={getNextProjectHref('/works/dad-awards-brief')} />
+          </Container>
+        </section>
+      </div>
     </>
   )
 }
