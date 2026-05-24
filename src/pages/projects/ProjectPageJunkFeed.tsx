@@ -11,7 +11,7 @@ export function ProjectPageJunkFeed() {
     <>
       <ProjectHero
         title="Junk Feed Campaign"
-        caption="Logo Design / Brand Identity / Web Design / Social Media / Print design / Vibe coding"
+        caption="Logo Design / Brand Identity / Social Media / Print design / Vibe coding"
         brief={
           <>
             <p>

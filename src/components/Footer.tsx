@@ -31,7 +31,7 @@ export function Footer() {
                 Works
               </Link>
               <a
-                href="https://drive.google.com/file/d/1qDHxu3d8LmdO2OtaCQ-BU-WnIfjSZX4d/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Ne-AqtJVTn8-ZBLdmVx2WBCSAILRjHzO/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 className="block editorial-kicker text-paper/90  hover:text-paper"

@@ -14,7 +14,7 @@ export const projects: Project[] = [
     id: 'junk',
     number: '01',
     title: 'Junk Feed Campaign',
-    subtitle: 'Logo Design / Brand Identity / Web Design / Social Media / Print design / Vibe coding',
+    subtitle: 'Logo Design / Brand Identity / Social Media / Print design / Vibe coding',
     href: '/works/junk-feed-campaign',
     coverImage: '/images/junk-feed-cover.jpg',
     imageClassName: 'lg:h-[558px]',

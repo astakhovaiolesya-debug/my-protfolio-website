@@ -149,7 +149,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           ))}
 
           <a
-            href="https://drive.google.com/file/d/1qDHxu3d8LmdO2OtaCQ-BU-WnIfjSZX4d/view?usp=sharing"
+            href="https://drive.google.com/file/d/1Ne-AqtJVTn8-ZBLdmVx2WBCSAILRjHzO/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
             onClick={onClose}

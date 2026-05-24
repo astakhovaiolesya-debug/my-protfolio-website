@@ -50,7 +50,7 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
                 </NavLink>
               ))}
               <a
-                href="https://drive.google.com/file/d/1qDHxu3d8LmdO2OtaCQ-BU-WnIfjSZX4d/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Ne-AqtJVTn8-ZBLdmVx2WBCSAILRjHzO/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 className="editorial-kicker text-ink/90 transition-colors duration-200 hover:text-ink"
