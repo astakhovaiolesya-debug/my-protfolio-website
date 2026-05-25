@@ -53,13 +53,6 @@ export function Footer() {
                 LinkedIn
               </a>
               <a
-                href="#"
-                className="block editorial-kicker text-paper/90 hover:text-paper"
-                onClick={(e) => e.preventDefault()}
-              >
-                Instagram
-              </a>
-              <a
                 href="https://www.behance.net/astakhovaolesia"
                 target="_blank"
                 rel="noreferrer"

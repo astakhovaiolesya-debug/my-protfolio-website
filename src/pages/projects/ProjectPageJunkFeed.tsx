@@ -101,7 +101,7 @@ export function ProjectPageJunkFeed() {
         </section>
 
         <section>
-          <Container className="flex justify-end py-2">
+          <Container className="flex justify-end pb-10 pt-2 sm:pb-12">
             <NextProjectLink to={nextHref} />
           </Container>
         </section>
