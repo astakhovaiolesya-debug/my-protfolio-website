@@ -39,11 +39,7 @@ export function ProjectPageJunkFeed() {
           <Container className="py-[32px]">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <CaseStudyImage src="/images/junk-feed-leaflet.jpg" aspectClassName="aspect-[679/475]" />
-              <CaseStudyImage
-                src="/images/junk-feed-bus-shelter.jpg"
-                aspectClassName="aspect-[679/475]"
-                objectPosition="center top"
-              />
+              <CaseStudyImage src="/images/junk-feed-bus-shelter.jpg" aspectClassName="aspect-[679/475]" />
             </div>
           </Container>
         </section>
