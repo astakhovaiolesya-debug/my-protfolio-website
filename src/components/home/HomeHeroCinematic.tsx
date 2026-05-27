@@ -32,22 +32,6 @@ export function HomeHeroCinematic() {
         return
       }
 
-      const captureStart = () => {
-        const rect = box.getBoundingClientRect()
-        gsap.set(box, {
-          position: 'fixed',
-          left: rect.left,
-          top: rect.top,
-          width: rect.width,
-          height: rect.height,
-          margin: 0,
-          borderRadius: 0,
-          zIndex: 1,
-        })
-      }
-
-      captureStart()
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: panel,
@@ -57,24 +41,31 @@ export function HomeHeroCinematic() {
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          onRefresh: (self) => {
-            if (self.progress === 0) captureStart()
-          },
         },
       })
 
-      tl.to(
-        box,
+      tl.fromTo(
+        center,
         {
-          left: 0,
-          top: 0,
+          position: 'fixed',
+          left: '50%',
+          top: '50%',
+          xPercent: -50,
+          yPercent: -50,
+          width: 'min(40vw, 452px)',
+          maxWidth: 'calc(100vw - 2.5rem)',
+          immediateRender: false,
+        },
+        {
           width: '100vw',
           height: '100vh',
+          maxWidth: '100vw',
           ease: 'none',
         },
         0,
       )
 
+      tl.fromTo(box, { height: 'auto' }, { height: '100%', ease: 'none' }, 0)
       tl.to(center, { opacity: 0, pointerEvents: 'none', ease: 'none' }, 0)
       tl.to(title, { y: 32, opacity: 0.15, ease: 'none' }, 0)
       tl.to(bio, { y: 48, opacity: 0.15, ease: 'none' }, 0)
@@ -98,14 +89,13 @@ export function HomeHeroCinematic() {
       className="relative z-0 min-h-viewport w-full overflow-hidden bg-paper"
       aria-label="Introduction"
     >
-      {/* Viewport center — matches screenshot start frame */}
       <div
         ref={centerRef}
-        className="pointer-events-auto fixed left-1/2 top-1/2 z-[1] w-[min(40vw,452px)] max-w-[calc(100vw-2.5rem)] -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-auto fixed left-1/2 top-1/2 z-[1] flex w-[min(40vw,452px)] max-w-[calc(100vw-2.5rem)] -translate-x-1/2 -translate-y-1/2 flex-col"
       >
         <div
           ref={videoShellRef}
-          className="aspect-video w-full overflow-hidden rounded-none bg-accent will-change-[width,height]"
+          className="aspect-video w-full shrink-0 overflow-hidden rounded-none bg-accent will-change-[width,height]"
         >
           <video
             className="h-full w-full object-cover object-center"
@@ -121,7 +111,7 @@ export function HomeHeroCinematic() {
         <a
           ref={scrollCueRef}
           href="#about"
-          className="editorial-hero-subhead mt-2 block w-full text-right text-ink transition-opacity duration-200 hover:opacity-80"
+          className="editorial-hero-subhead mt-2 block w-full shrink-0 text-right text-ink transition-opacity duration-200 hover:opacity-80"
         >
           Scroll me
         </a>
