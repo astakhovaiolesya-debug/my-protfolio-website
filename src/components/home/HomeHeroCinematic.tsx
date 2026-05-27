@@ -7,14 +7,16 @@ gsap.registerPlugin(ScrollTrigger)
 
 const GROW_SCROLL_PX = 720
 
+/** Screenshot start frame: ~40% viewport width, 16:9, max 452px. */
 function startBoxSize(): { width: number; height: number } {
-  const width = Math.min(window.innerWidth * 0.35, 452)
+  const width = Math.min(window.innerWidth * 0.4, 452)
   const height = (width * 9) / 16
   return { width, height }
 }
 
 export function HomeHeroCinematic() {
   const panelRef = useRef<HTMLDivElement>(null)
+  const mediaClusterRef = useRef<HTMLDivElement>(null)
   const videoShellRef = useRef<HTMLDivElement>(null)
   const scrollCueRef = useRef<HTMLAnchorElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
@@ -78,8 +80,11 @@ export function HomeHeroCinematic() {
       if (cue) {
         tl.to(cue, { opacity: 0, y: 12, ease: 'none' }, 0)
       }
-      tl.to(title, { y: 40, opacity: 0.2, ease: 'none' }, 0)
-      tl.to(bio, { y: 56, opacity: 0.2, ease: 'none' }, 0)
+      if (mediaClusterRef.current) {
+        tl.to(mediaClusterRef.current, { opacity: 0, ease: 'none' }, 0)
+      }
+      tl.to(title, { y: 32, opacity: 0.15, ease: 'none' }, 0)
+      tl.to(bio, { y: 48, opacity: 0.15, ease: 'none' }, 0)
       tl.to(row, { opacity: 0, ease: 'none' }, 0)
 
       queueMicrotask(() => ScrollTrigger.refresh())
@@ -97,41 +102,45 @@ export function HomeHeroCinematic() {
   return (
     <section
       ref={panelRef}
-      className="relative z-0 flex min-h-viewport w-full flex-col bg-paper"
+      className="relative z-0 min-h-viewport w-full overflow-hidden bg-paper"
       aria-label="Introduction"
     >
-      <Container className="mx-auto flex min-h-viewport w-full max-w-[min(100vw,1440px)] flex-col px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[calc(5.5rem+env(safe-area-inset-top))] sm:px-8 sm:pb-12 lg:px-14 lg:pb-14 lg:pt-[calc(6.75rem+env(safe-area-inset-top))]">
-        {/* Video + “Scroll me” — centered in space above bottom copy (screenshot start frame) */}
-        <div className="flex min-h-0 flex-1 flex-col items-center justify-center py-6 sm:py-10">
-          <div className="flex w-full max-w-[452px] flex-col items-end gap-2 sm:max-w-[min(35vw,452px)]">
-            <div
-              ref={videoShellRef}
-              className="overflow-hidden rounded-none bg-accent will-change-[width,height]"
+      {/* Video + “Scroll me” — viewport center (screenshot start) */}
+      <div
+        ref={mediaClusterRef}
+        className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center"
+      >
+        <div className="pointer-events-auto flex flex-col items-end gap-2">
+          <div
+            ref={videoShellRef}
+            className="overflow-hidden rounded-none bg-accent will-change-[width,height]"
+          >
+            <video
+              className="h-full w-full object-cover object-center"
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-label="Portfolio hero animation"
             >
-              <video
-                className="h-full w-full object-cover object-center"
-                autoPlay
-                loop
-                muted
-                playsInline
-                aria-label="Portfolio hero animation"
-              >
-                <source src="/videos/hero-section.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <a
-              ref={scrollCueRef}
-              href="#about"
-              className="editorial-hero-subhead mr-1 text-right text-ink transition-opacity duration-200 hover:opacity-80"
-            >
-              Scroll me
-            </a>
+              <source src="/videos/hero-section.mp4" type="video/mp4" />
+            </video>
           </div>
+          <a
+            ref={scrollCueRef}
+            href="#about"
+            className="editorial-hero-subhead mr-1 text-right text-ink transition-opacity duration-200 hover:opacity-80"
+          >
+            Scroll me
+          </a>
         </div>
+      </div>
 
+      {/* Name + bio pinned to bottom edge */}
+      <Container className="pointer-events-none relative z-[2] mx-auto flex min-h-viewport w-full max-w-[min(100vw,1440px)] flex-col justify-end px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-12 lg:px-14 lg:pb-14">
         <div
           ref={textRowRef}
-          className="flex w-full min-w-0 shrink-0 flex-col gap-8 py-4 sm:gap-10 lg:flex-row lg:items-end lg:justify-between"
+          className="pointer-events-auto flex w-full min-w-0 flex-col gap-8 py-4 sm:gap-10 lg:flex-row lg:items-end lg:justify-between"
         >
           <h1 ref={titleRef} className="editorial-h1 max-w-[18ch] shrink-0 text-balance will-change-transform">
             Olesia Astakhova
