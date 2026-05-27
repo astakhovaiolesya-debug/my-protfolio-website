@@ -7,16 +7,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 const GROW_SCROLL_PX = 720
 
-/** Screenshot start frame: ~40% viewport width, 16:9, max 452px. */
-function startBoxSize(): { width: number; height: number } {
-  const width = Math.min(window.innerWidth * 0.4, 452)
-  const height = (width * 9) / 16
-  return { width, height }
-}
-
 export function HomeHeroCinematic() {
   const panelRef = useRef<HTMLDivElement>(null)
-  const mediaClusterRef = useRef<HTMLDivElement>(null)
+  const centerRef = useRef<HTMLDivElement>(null)
   const videoShellRef = useRef<HTMLDivElement>(null)
   const scrollCueRef = useRef<HTMLAnchorElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
@@ -25,29 +18,35 @@ export function HomeHeroCinematic() {
 
   useLayoutEffect(() => {
     const panel = panelRef.current
+    const center = centerRef.current
     const box = videoShellRef.current
     const title = titleRef.current
     const bio = bioRef.current
-    const cue = scrollCueRef.current
     const row = textRowRef.current
-    if (!panel || !box || !title || !bio || !row) return
+    if (!panel || !center || !box || !title || !bio || !row) return
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     const ctx = gsap.context(() => {
-      const { width: startW, height: startH } = startBoxSize()
-
-      gsap.set(box, {
-        width: startW,
-        height: startH,
-        borderRadius: 0,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-      })
-
       if (reducedMotion) {
         return
       }
+
+      const captureStart = () => {
+        const rect = box.getBoundingClientRect()
+        gsap.set(box, {
+          position: 'fixed',
+          left: rect.left,
+          top: rect.top,
+          width: rect.width,
+          height: rect.height,
+          margin: 0,
+          borderRadius: 0,
+          zIndex: 1,
+        })
+      }
+
+      captureStart()
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -58,31 +57,25 @@ export function HomeHeroCinematic() {
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          onRefresh: (self) => {
+            if (self.progress === 0) captureStart()
+          },
         },
       })
 
       tl.to(
         box,
         {
-          width: '100vw',
-          height: '100vh',
-          position: 'fixed',
           left: 0,
           top: 0,
-          margin: 0,
-          xPercent: 0,
-          yPercent: 0,
+          width: '100vw',
+          height: '100vh',
           ease: 'none',
         },
         0,
       )
 
-      if (cue) {
-        tl.to(cue, { opacity: 0, y: 12, ease: 'none' }, 0)
-      }
-      if (mediaClusterRef.current) {
-        tl.to(mediaClusterRef.current, { opacity: 0, ease: 'none' }, 0)
-      }
+      tl.to(center, { opacity: 0, pointerEvents: 'none', ease: 'none' }, 0)
       tl.to(title, { y: 32, opacity: 0.15, ease: 'none' }, 0)
       tl.to(bio, { y: 48, opacity: 0.15, ease: 'none' }, 0)
       tl.to(row, { opacity: 0, ease: 'none' }, 0)
@@ -105,39 +98,36 @@ export function HomeHeroCinematic() {
       className="relative z-0 min-h-viewport w-full overflow-hidden bg-paper"
       aria-label="Introduction"
     >
-      {/* Video + “Scroll me” — viewport center (screenshot start) */}
+      {/* Viewport center — matches screenshot start frame */}
       <div
-        ref={mediaClusterRef}
-        className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center"
+        ref={centerRef}
+        className="pointer-events-auto fixed left-1/2 top-1/2 z-[1] w-[min(40vw,452px)] max-w-[calc(100vw-2.5rem)] -translate-x-1/2 -translate-y-1/2"
       >
-        <div className="pointer-events-auto flex flex-col items-end gap-2">
-          <div
-            ref={videoShellRef}
-            className="overflow-hidden rounded-none bg-accent will-change-[width,height]"
+        <div
+          ref={videoShellRef}
+          className="aspect-video w-full overflow-hidden rounded-none bg-accent will-change-[width,height]"
+        >
+          <video
+            className="h-full w-full object-cover object-center"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="Portfolio hero animation"
           >
-            <video
-              className="h-full w-full object-cover object-center"
-              autoPlay
-              loop
-              muted
-              playsInline
-              aria-label="Portfolio hero animation"
-            >
-              <source src="/videos/hero-section.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <a
-            ref={scrollCueRef}
-            href="#about"
-            className="editorial-hero-subhead mr-1 text-right text-ink transition-opacity duration-200 hover:opacity-80"
-          >
-            Scroll me
-          </a>
+            <source src="/videos/hero-section.mp4" type="video/mp4" />
+          </video>
         </div>
+        <a
+          ref={scrollCueRef}
+          href="#about"
+          className="editorial-hero-subhead mt-2 block w-full text-right text-ink transition-opacity duration-200 hover:opacity-80"
+        >
+          Scroll me
+        </a>
       </div>
 
-      {/* Name + bio pinned to bottom edge */}
-      <Container className="pointer-events-none relative z-[2] mx-auto flex min-h-viewport w-full max-w-[min(100vw,1440px)] flex-col justify-end px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-12 lg:px-14 lg:pb-14">
+      <Container className="pointer-events-none relative z-[3] mx-auto flex min-h-viewport w-full max-w-[min(100vw,1440px)] flex-col justify-end px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-12 lg:px-14 lg:pb-14">
         <div
           ref={textRowRef}
           className="pointer-events-auto flex w-full min-w-0 flex-col gap-8 py-4 sm:gap-10 lg:flex-row lg:items-end lg:justify-between"

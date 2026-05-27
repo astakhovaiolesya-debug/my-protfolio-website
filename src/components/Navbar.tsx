@@ -26,7 +26,7 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
     <>
       <header
         className={[
-          'top-0 z-[100] w-full bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75',
+          'top-0 z-[100] w-full bg-paper',
           isHome ? 'fixed inset-x-0' : 'sticky',
         ].join(' ')}
       >
