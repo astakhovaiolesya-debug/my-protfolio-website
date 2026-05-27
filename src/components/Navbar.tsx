@@ -20,10 +20,16 @@ export function Navbar({ variant = 'light' }: NavbarProps) {
   }, [location.pathname])
 
   const logoSrc = variant === 'light' ? '/images/logo.svg' : '/images/logo.svg'
+  const isHome = location.pathname === '/'
 
   return (
     <>
-      <header className="sticky top-0 z-[100] bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
+      <header
+        className={[
+          'top-0 z-[100] w-full bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75',
+          isHome ? 'fixed inset-x-0' : 'sticky',
+        ].join(' ')}
+      >
         <div className="relative z-[110] mx-auto w-full max-w-[1440px] px-5 py-5 sm:px-8 lg:py-6 2xl:px-10">
           <div className="flex items-center justify-between">
             <Link
