@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { HomeHeroCinematic } from '../components/home/HomeHeroCinematic'
 import { Container } from '../components/Container'
 import { ProjectCard } from '../components/ProjectCard'
 import { projects } from '../data/projects'
@@ -6,47 +7,8 @@ import { projects } from '../data/projects'
 export function HomePage() {
   return (
     <>
-      {/*
-        Hero: full viewport on all devices (fixed nav on home); video centered, name row at bottom.
-      */}
-      <section className="flex min-h-viewport flex-col overflow-hidden overflow-x-clip bg-paper">
-        <Container className="mx-auto flex min-h-viewport w-full max-w-[1376px] flex-col justify-between px-4 pb-[max(2.5rem,env(safe-area-inset-bottom,0px))] pt-[calc(5.5rem+env(safe-area-inset-top,0px))] sm:px-8 sm:pb-12 lg:pb-14 lg:pt-[calc(6.75rem+env(safe-area-inset-top,0px))]">
-          <div className="flex min-h-0 flex-1 flex-col items-center justify-center py-4 sm:py-6">
-            <div className="flex w-full max-w-[452px] flex-col gap-2">
-              <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-accent">
-                <video
-                  className="absolute inset-0 h-full w-full object-cover object-center"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  aria-label="Portfolio hero animation"
-                >
-                  <source src="/videos/hero-section.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <a
-                href="#about"
-                className="editorial-hero-subhead mr-1 block w-full text-right text-ink transition-opacity duration-200 hover:opacity-80"
-              >
-                Scroll me
-              </a>
-            </div>
-          </div>
-
-          <div className="flex w-full min-w-0 shrink-0 flex-col gap-8 py-4 lg:flex-row lg:items-end lg:justify-between">
-            <h1 className="editorial-h1 max-w-[18ch] shrink-0 text-balance opacity-0 motion-safe:animate-hero-fade-up motion-reduce:animate-none motion-reduce:opacity-100 [animation-delay:120ms]">
-              Olesia Astakhova
-            </h1>
-            <div className="flex min-w-0 flex-1 flex-col lg:max-w-[561px] lg:items-end">
-              <p className="editorial-hero-subhead max-w-[40ch] text-left text-pretty leading-[1.38] lg:max-w-none lg:text-right lg:tracking-[-0.01em] opacity-0 motion-safe:animate-hero-fade-up motion-reduce:animate-none motion-reduce:opacity-100 [animation-delay:260ms]">
-                A Dublin-based graphic communication designer specialising in branding and typography, from concept
-                through to print and digital production.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* Cinematic scroll hero — GSAP ScrollTrigger (sticky + scrub) */}
+      <HomeHeroCinematic />
 
       <section id="about" className="section-y scroll-mt-[calc(5.5rem+1rem)] lg:scroll-mt-[calc(6.75rem+1rem)]">
         <Container>
@@ -123,4 +85,3 @@ export function HomePage() {
     </>
   )
 }
-

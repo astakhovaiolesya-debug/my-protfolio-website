@@ -18,15 +18,6 @@ export default {
       letterSpacing: {
         tightish: '-0.01em',
       },
-      keyframes: {
-        heroFadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-      },
-      animation: {
-        'hero-fade-up': 'heroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards',
-      },
     },
   },
   plugins: [],
