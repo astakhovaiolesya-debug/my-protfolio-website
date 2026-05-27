@@ -18,6 +18,25 @@ export default {
       letterSpacing: {
         tightish: '-0.01em',
       },
+      keyframes: {
+        heroTextureDrift: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.06)' },
+        },
+        heroScrollCue: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(8px)' },
+        },
+        heroFadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'hero-texture': 'heroTextureDrift 22s ease-in-out infinite',
+        'hero-scroll-cue': 'heroScrollCue 2.2s ease-in-out infinite',
+        'hero-fade-up': 'heroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+      },
     },
   },
   plugins: [],

@@ -7,27 +7,54 @@ export function HomePage() {
   return (
     <>
       {/*
-        Hero: full viewport height, content anchored to the bottom (editorial negative space above).
-        Desktop matches reference — title lower-left, description column to the right; copy remains text-left
-        inside its measure so the right edge of the paragraph lines up with the nav column.
+        Hero (Figma website-portfolio 2:2): 800px desktop column, textured 16:9 block + “Scroll me”,
+        then name row with 160px gap. Animations: slow texture drift, scroll cue bounce, staged fade-up on copy.
       */}
-      <section className="flex min-h-viewport flex-col overflow-hidden overflow-x-clip">
-        <Container className="flex min-h-0 w-full min-w-0 flex-1 flex-col justify-end pb-[max(4rem,env(safe-area-inset-bottom,0px))] pt-10 sm:pb-24 sm:pt-16 lg:pb-28 lg:pt-20">
-          <div className="flex w-full min-w-0 flex-col gap-8 lg:flex-row lg:items-end lg:gap-12 xl:gap-16 2xl:gap-20">
-            <h1 className="editorial-h1 max-w-[18ch] shrink-0 text-balance">
-              Olesia Astakhova
-            </h1>
-            <div className="flex min-w-0 flex-1 flex-col lg:items-end">
-              <p className="editorial-subhead w-full max-w-[40ch] text-left text-ink/90 text-pretty leading-[1.38] sm:max-w-[42ch] lg:max-w-[min(38ch,34rem)] xl:max-w-[min(40ch,36rem)]">
-                A Dublin-based graphic communication designer specialising in branding and typography, from concept
-                through to print and digital production.
-              </p>
+      <section className="flex min-h-viewport flex-col overflow-hidden overflow-x-clip bg-paper lg:min-h-[800px]">
+        <Container className="flex w-full flex-1 flex-col justify-end px-4 pb-10 pt-12 sm:px-8 lg:max-w-none lg:px-8 xl:max-w-none">
+          <div className="mx-auto flex w-full max-w-[1376px] flex-col gap-16 lg:gap-[160px]">
+            <div className="flex w-full flex-col items-center lg:items-end">
+              <div className="flex w-full max-w-[452px] flex-col gap-2">
+                <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-accent">
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute left-1/2 top-1/2 h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2 motion-reduce:relative motion-reduce:inset-auto motion-reduce:left-auto motion-reduce:top-auto motion-reduce:h-full motion-reduce:w-full motion-reduce:translate-x-0 motion-reduce:translate-y-0">
+                      <div className="size-full origin-center motion-safe:animate-hero-texture motion-reduce:animate-none">
+                        <img
+                          src="/images/hero-animation.png"
+                          alt=""
+                          className="pointer-events-none h-full w-full select-none object-cover object-center"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href="#about"
+                  className="editorial-hero-subhead mr-1 block max-w-[14ch] text-right opacity-90 motion-safe:animate-hero-scroll-cue motion-reduce:animate-none"
+                >
+                  Scroll me
+                </a>
+              </div>
+            </div>
+
+            <div className="flex w-full min-w-0 flex-col gap-8 py-4 lg:flex-row lg:items-end lg:justify-between">
+              <h1 className="editorial-h1 max-w-[18ch] shrink-0 text-balance opacity-0 motion-safe:animate-hero-fade-up motion-reduce:animate-none motion-reduce:opacity-100 [animation-delay:120ms]">
+                Olesia Astakhova
+              </h1>
+              <div className="flex min-w-0 flex-1 flex-col lg:max-w-[561px] lg:items-end">
+                <p className="editorial-hero-subhead max-w-[40ch] text-left text-pretty leading-[1.38] lg:max-w-none lg:text-right lg:tracking-[-0.01em] opacity-0 motion-safe:animate-hero-fade-up motion-reduce:animate-none motion-reduce:opacity-100 [animation-delay:260ms]">
+                  A Dublin-based graphic communication designer specialising in branding and typography, from concept
+                  through to print and digital production.
+                </p>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="section-y">
+      <section id="about" className="section-y scroll-mt-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
             <div className="space-y-8">
