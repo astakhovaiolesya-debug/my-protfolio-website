@@ -42,7 +42,12 @@ export function HomeHeroCinematic() {
             invalidateOnRefresh: true,
           },
         })
-        .to(box, { width: '100vw', height: '100vh', ease: 'none' })
+        .to(box, {
+          width: '100vw',
+          height: '100vh',
+          ease: 'none',
+          transformOrigin: 'center center',
+        })
     }, panel)
 
     queueMicrotask(() => ScrollTrigger.refresh())
@@ -59,30 +64,34 @@ export function HomeHeroCinematic() {
       className="panel relative z-0 min-h-viewport w-full overflow-hidden bg-paper"
       aria-label="Introduction"
     >
+      {/* Video centred; cue directly underneath (flex column) */}
       <div
-        ref={boxRef}
-        className="box fixed left-1/2 top-1/2 z-[1] aspect-video w-[min(40vw,452px)] max-w-[calc(100vw-2.5rem)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-none bg-accent will-change-[width,height]"
+        className="pointer-events-none fixed left-1/2 z-[40] w-[min(40vw,452px)] max-w-[calc(100vw-2.5rem)] -translate-x-1/2 top-[calc(50%-min(11.25vw,127.125px))]"
       >
-        <video
-          className="h-full w-full object-cover object-center"
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-label="Portfolio hero animation"
+        <div
+          ref={boxRef}
+          className="box relative z-[50] aspect-video w-full overflow-hidden rounded-none bg-accent will-change-[width,height]"
         >
-          <source src="/videos/hero-section.mp4" type="video/mp4" />
-        </video>
+          <video
+            className="h-full w-full object-cover object-center"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-label="Portfolio hero animation"
+          >
+            <source src="/videos/hero-section.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <a
+          href="#about"
+          className="editorial-hero-subhead pointer-events-auto relative z-[40] mt-2 block w-full text-right text-ink transition-opacity duration-200 hover:opacity-80"
+        >
+          Scroll me
+        </a>
       </div>
 
-      <a
-        href="#about"
-        className="editorial-hero-subhead pointer-events-auto fixed left-1/2 top-1/2 z-[2] w-[min(40vw,452px)] max-w-[calc(100vw-2.5rem)] -translate-x-1/2 translate-y-[calc(-50%+min(20vw,226px)+0.75rem)] text-right text-ink transition-opacity duration-200 hover:opacity-80 sm:translate-y-[calc(-50%+min(22.5vw,254px)+0.75rem)]"
-      >
-        Scroll me
-      </a>
-
-      <Container className="pointer-events-none relative z-[3] mx-auto flex min-h-viewport w-full max-w-[min(100vw,1440px)] flex-col justify-end px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-12 lg:px-14 lg:pb-14">
+      <Container className="pointer-events-none relative z-[1] mx-auto flex min-h-viewport w-full max-w-[min(100vw,1440px)] flex-col justify-end px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] sm:px-8 sm:pb-12 lg:px-14 lg:pb-14">
         <div className="pointer-events-auto flex w-full min-w-0 flex-col gap-8 py-4 sm:gap-10 lg:flex-row lg:items-end lg:justify-between">
           <h1 className="editorial-h1 max-w-[18ch] shrink-0 text-balance">Olesia Astakhova</h1>
           <div className="flex min-w-0 flex-1 flex-col lg:max-w-[561px] lg:items-end">
