@@ -7,32 +7,28 @@ export function HomePage() {
   return (
     <>
       {/*
-        Hero (Figma website-portfolio 2:2): 800px desktop column, textured 16:9 block + “Scroll me”,
-        then name row with 160px gap. Animations: slow texture drift, scroll cue bounce, staged fade-up on copy.
+        Hero: centered 16:9 looping video + “Scroll me”, then name row (Figma-aligned spacing).
       */}
       <section className="flex min-h-viewport flex-col overflow-hidden overflow-x-clip bg-paper lg:min-h-[800px]">
         <Container className="flex w-full flex-1 flex-col justify-end px-4 pb-10 pt-12 sm:px-8 lg:max-w-none lg:px-8 xl:max-w-none">
           <div className="mx-auto flex w-full max-w-[1376px] flex-col gap-16 lg:gap-[160px]">
-            <div className="flex w-full flex-col items-center lg:items-end">
-              <div className="flex w-full max-w-[452px] flex-col gap-2">
+            <div className="flex w-full flex-col items-center">
+              <div className="flex w-full max-w-[452px] flex-col items-center gap-2">
                 <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-accent">
-                  <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute left-1/2 top-1/2 h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2 motion-reduce:relative motion-reduce:inset-auto motion-reduce:left-auto motion-reduce:top-auto motion-reduce:h-full motion-reduce:w-full motion-reduce:translate-x-0 motion-reduce:translate-y-0">
-                      <div className="size-full origin-center motion-safe:animate-hero-texture motion-reduce:animate-none">
-                        <img
-                          src="/images/hero-animation.png"
-                          alt=""
-                          className="pointer-events-none h-full w-full select-none object-cover object-center"
-                          loading="eager"
-                          decoding="async"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  <video
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    aria-label="Portfolio hero animation"
+                  >
+                    <source src="/videos/hero-section.mp4" type="video/mp4" />
+                  </video>
                 </div>
                 <a
                   href="#about"
-                  className="editorial-hero-subhead mr-1 block max-w-[14ch] text-right opacity-90 motion-safe:animate-hero-scroll-cue motion-reduce:animate-none"
+                  className="editorial-hero-subhead block w-full text-center opacity-90 motion-safe:animate-hero-scroll-cue motion-reduce:animate-none"
                 >
                   Scroll me
                 </a>
