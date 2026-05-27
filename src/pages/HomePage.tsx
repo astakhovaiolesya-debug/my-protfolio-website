@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Footer } from '../components/Footer'
 import { HomeHeroCinematic } from '../components/home/HomeHeroCinematic'
 import { Container } from '../components/Container'
 import { ProjectCard } from '../components/ProjectCard'
@@ -85,6 +86,10 @@ export function HomePage() {
             </div>
           </Container>
         </section>
+
+        <div className="relative z-10">
+          <Footer />
+        </div>
       </div>
     </div>
   )

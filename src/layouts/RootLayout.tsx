@@ -12,7 +12,7 @@ export function RootLayout() {
       <main className="min-h-0 min-w-0 flex-1">
         <Outlet />
       </main>
-      <Footer />
+      {!isHome && <Footer />}
       <ScrollRestoration />
     </div>
   )
