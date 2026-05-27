@@ -7,10 +7,12 @@ import { projects } from '../data/projects'
 export function HomePage() {
   return (
     <>
-      {/* Cinematic scroll hero — GSAP ScrollTrigger (sticky + scrub) */}
       <HomeHeroCinematic />
 
-      <section id="about" className="section-y scroll-mt-[calc(5.5rem+1rem)] lg:scroll-mt-[calc(6.75rem+1rem)]">
+      <section
+        id="about"
+        className="relative z-10 bg-paper section-y scroll-mt-[calc(5.5rem+1rem)] lg:scroll-mt-[calc(6.75rem+1rem)]"
+      >
         <Container>
           <div className="grid gap-10 lg:grid-cols-[minmax(0,673px)_minmax(0,1fr)] lg:items-end lg:gap-[30px]">
             <div className="space-y-8">
@@ -49,7 +51,7 @@ export function HomePage() {
         </Container>
       </section>
 
-      <section className="section-y">
+      <section className="relative z-10 bg-paper section-y">
         <Container>
           <div className="flex flex-col gap-10">
             <div className="flex items-end justify-between gap-6 py-4">
